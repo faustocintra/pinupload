@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   authUrl: 'https://api.pinterest.com/oauth/',
-  redirectUri: 'http://localhost:4200/login',
-  clientId: ''
+  redirectUri: 'https://fulvio7.github.io/pinupload/', //'http://localhost:4200/login',
+  clientId: '5048714896624104885'
 };
 
 /*
