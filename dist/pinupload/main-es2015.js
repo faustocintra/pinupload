@@ -80,6 +80,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+
 
 
 let AppComponent = class AppComponent {
@@ -108,6 +110,9 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
       </li>
       <li>
         <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+      </li>
+      <li>
+        <h2><a target="_blank" rel="noopener" href="https://api.pinterest.com/oauth/?response_type=code&redirect_uri=${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].redirectUri}&client_id=${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].clientId}&scope=read_public,write_public&state=${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].state}">Login</a></h2>
       </li>
     </ul>
     <a [routerLink]="['login']">Login</a>
@@ -196,19 +201,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/pinterest.service */ "./src/app/services/pinterest.service.ts");
+/* harmony import */ var _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/@angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 
 let LoginComponent = class LoginComponent {
-    constructor(pinterest) {
+    constructor(route, pinterest) {
+        this.route = route;
         this.pinterest = pinterest;
-        this.token = '';
+        this.route.queryParams.subscribe(params => {
+            this.state = params['state'];
+            this.code = params['code'];
+        });
     }
     ngOnInit() {
-        this.token = this.pinterest.getToken();
+        console.log(this.state, this.code);
     }
 };
 LoginComponent.ctorParameters = () => [
+    { type: _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
     { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__["PinterestService"] }
 ];
 LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -327,6 +339,7 @@ let PinterestService = class PinterestService {
             let token;
             try {
                 const promise = yield this.http.get(this.env.authUrl, { params: params });
+                console.log(this.env.authUrl, params);
                 console.log('TOKEN: ' + token);
                 promise.subscribe(ret => token = ret);
                 return token;
@@ -367,7 +380,8 @@ const environment = {
     production: false,
     authUrl: 'https://api.pinterest.com/oauth/',
     redirectUri: 'https://fatecandre.github.io/pinupload/login',
-    clientId: '5049983015757855021'
+    clientId: '5049983015757855021',
+    state: 'abc123',
 };
 /*
  * For easier debugging in development mode, you can import the following file
