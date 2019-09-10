@@ -110,6 +110,7 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
       </li>
     </ul>
+    <a [routerLink]="['login']">Login</a>
     <router-outlet></router-outlet>
   `
     })
@@ -366,7 +367,7 @@ const environment = {
     production: false,
     authUrl: 'https://api.pinterest.com/oauth/',
     redirectUri: 'http://localhost:4200/login',
-    clientId: '5048713194869147067'
+    clientId: ''
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -416,7 +417,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/goncin/AULA/pinupload/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\1090481713020\Desktop\pinupload\src\main.ts */"./src/main.ts");
 
 
 /***/ })
