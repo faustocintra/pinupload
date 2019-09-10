@@ -110,6 +110,7 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
       </li>
     </ul>
+    <a [routerLink]="['login']">Login</a>
     <router-outlet></router-outlet>
   `
     })
