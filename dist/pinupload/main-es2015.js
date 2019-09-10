@@ -111,7 +111,8 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
       </li>
     </ul>
     <router-outlet></router-outlet>
-  `
+    <a [routerLink]="['login']">Login</a>
+    `
     })
 ], AppComponent);
 
@@ -416,7 +417,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Pinupload\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\pinupload\src\main.ts */"./src/main.ts");
 
 
 /***/ })
