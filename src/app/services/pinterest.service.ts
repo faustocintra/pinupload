@@ -18,7 +18,6 @@ export class PinterestService {
     const params = new HttpParams();
 
     params.set('response_type', 'code');
-    params.set('redirect_uri', this.env.redirectUri);
     params.set('client_id', this.env.clientId);
     params.set('scope', 'read_public,write_public');
     params.set('state', 'abc123');
