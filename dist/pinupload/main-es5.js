@@ -493,6 +493,7 @@ var PinterestService = /** @class */ (function () {
             .set('redirect_uri', this.env.redirectUri);
         //redireciona para o site do pinterest para fazer login
         window.location.href = this.env.authUrl + '?' + params.toString();
+        // asdf
     };
     PinterestService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }

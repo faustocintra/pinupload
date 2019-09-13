@@ -485,6 +485,7 @@ let PinterestService = class PinterestService {
             .set('redirect_uri', this.env.redirectUri);
         //redireciona para o site do pinterest para fazer login
         window.location.href = this.env.authUrl + '?' + params.toString();
+        // asdf
     }
 };
 PinterestService.ctorParameters = () => [
