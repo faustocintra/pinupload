@@ -479,7 +479,7 @@ let PinterestService = class PinterestService {
     }
     initLogin() {
         const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
-            .set('response-type', 'code')
+            .set('response_type', 'code')
             .set('client_id', this.env.clientId)
             .set('scope', 'read_public, write_public')
             .set('redirect_uri', this.env.redirectUri);
