@@ -382,13 +382,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OAuth2CallbackComponent", function() { return OAuth2CallbackComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_pinterest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/pinterest.service */ "./src/app/services/pinterest.service.ts");
+
+
 
 
 var OAuth2CallbackComponent = /** @class */ (function () {
-    function OAuth2CallbackComponent() {
+    function OAuth2CallbackComponent(router, route, service) {
+        this.router = router;
+        this.route = route;
+        this.service = service;
     }
     OAuth2CallbackComponent.prototype.ngOnInit = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var queryParams;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                try {
+                    queryParams = this.route.queryParams;
+                    if (queryParams['code']) {
+                        console.log('*** ACCESS CODE ***', queryParams['code']);
+                        this.service.setAccessCode(queryParams['code']);
+                    }
+                    else {
+                        this.router.navigate(['/login']);
+                    }
+                }
+                catch (error) {
+                    console.error(error);
+                }
+                return [2 /*return*/];
+            });
+        });
     };
+    OAuth2CallbackComponent.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+        { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_3__["PinterestService"] }
+    ]; };
     OAuth2CallbackComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-o-auth2-callback',
@@ -435,6 +466,9 @@ var PinterestService = /** @class */ (function () {
             .set('scope', 'read_public,write_public')
             .set('redirect_uri', this.env.redirectUri);
         window.location.href = this.env.authUrl + "?" + params.toString();
+    };
+    PinterestService.prototype.setAccessCode = function (accessCode) {
+        this.accessCode = accessCode;
     };
     PinterestService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
