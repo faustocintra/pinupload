@@ -41,7 +41,7 @@ module.exports = "<p>home works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <button mat-button color=\"primary\" (click)=\"doLogin()\"\n    Fazer login no pinterest></button>\n    </button>\n</div>\n"
+module.exports = "<button (click)=\"initLogin()\">Iniciar login</button>\n\n"
 
 /***/ }),
 
