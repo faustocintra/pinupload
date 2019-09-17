@@ -79,7 +79,7 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
-    { path: 'oOuth2/callback', component: _o_outh2_callback_o_outh2_callback_component__WEBPACK_IMPORTED_MODULE_4__["OOuth2CallbackComponent"] }
+    { path: 'oauth2/callback', component: _o_outh2_callback_o_outh2_callback_component__WEBPACK_IMPORTED_MODULE_4__["OOuth2CallbackComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -382,13 +382,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OOuth2CallbackComponent", function() { return OOuth2CallbackComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_pinterest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/pinterest.service */ "./src/app/services/pinterest.service.ts");
+
+
 
 
 var OOuth2CallbackComponent = /** @class */ (function () {
-    function OOuth2CallbackComponent() {
+    function OOuth2CallbackComponent(router, route, pinterest) {
+        this.router = router;
+        this.route = route;
+        this.pinterest = pinterest;
     }
     OOuth2CallbackComponent.prototype.ngOnInit = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var queryParams, error_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.route.queryParams.toPromise()];
+                    case 1:
+                        queryParams = _a.sent();
+                        if (queryParams['code']) { // se existir o parâmetro chamado 'code'
+                            console.log('*** ACESS CODE: ' + queryParams['code']);
+                            // Salva o acess code para uso posterior
+                            this.pinterest.setAccessCode(queryParams['code']);
+                            // Retorna a página inicial
+                            // this.router.navigate(['/home']);
+                        }
+                        else { // não tem parâmetro 'code', provavelmente cancelou o login
+                            // retorna à pagina de login
+                            this.router.navigate(['/login']);
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        console.error(error_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
     };
+    OOuth2CallbackComponent.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+        { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_3__["PinterestService"] }
+    ]; };
     OOuth2CallbackComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-o-outh2-callback',
@@ -436,6 +477,9 @@ var PinterestService = /** @class */ (function () {
         //Redireciona para o site do Pinterest para fazer login
         window.location.href = this.env.authUrl + '?' + params.toString();
     };
+    PinterestService.prototype.setAccessCode = function (accessCode) {
+        this.accessCode = accessCode;
+    };
     PinterestService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
     ]; };
@@ -467,7 +511,7 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     authUrl: 'https://api.pinterest.com/oauth/',
-    redirectUri: 'https://alinecintra.github.io/pinupload/oauth2/callback1',
+    redirectUri: 'https://alinecintra.github.io/pinupload/oauth2/callback',
     clientId: '5048714817494364240'
 };
 /*

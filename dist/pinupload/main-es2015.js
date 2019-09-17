@@ -79,7 +79,7 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
-    { path: 'oOuth2/callback', component: _o_outh2_callback_o_outh2_callback_component__WEBPACK_IMPORTED_MODULE_4__["OOuth2CallbackComponent"] }
+    { path: 'oauth2/callback', component: _o_outh2_callback_o_outh2_callback_component__WEBPACK_IMPORTED_MODULE_4__["OOuth2CallbackComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -376,13 +376,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OOuth2CallbackComponent", function() { return OOuth2CallbackComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_pinterest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/pinterest.service */ "./src/app/services/pinterest.service.ts");
+
+
 
 
 let OOuth2CallbackComponent = class OOuth2CallbackComponent {
-    constructor() { }
+    constructor(router, route, pinterest) {
+        this.router = router;
+        this.route = route;
+        this.pinterest = pinterest;
+    }
     ngOnInit() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            try {
+                let queryParams = yield this.route.queryParams.toPromise();
+                if (queryParams['code']) { // se existir o parâmetro chamado 'code'
+                    console.log('*** ACESS CODE: ' + queryParams['code']);
+                    // Salva o acess code para uso posterior
+                    this.pinterest.setAccessCode(queryParams['code']);
+                    // Retorna a página inicial
+                    // this.router.navigate(['/home']);
+                }
+                else { // não tem parâmetro 'code', provavelmente cancelou o login
+                    // retorna à pagina de login
+                    this.router.navigate(['/login']);
+                }
+            }
+            catch (error) {
+                console.error(error);
+                // Deu erro no login; retornamos a página de login.
+                // this.router.navigate([''/login]);
+            }
+        });
     }
 };
+OOuth2CallbackComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_3__["PinterestService"] }
+];
 OOuth2CallbackComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-o-outh2-callback',
@@ -428,6 +462,9 @@ let PinterestService = class PinterestService {
         //Redireciona para o site do Pinterest para fazer login
         window.location.href = this.env.authUrl + '?' + params.toString();
     }
+    setAccessCode(accessCode) {
+        this.accessCode = accessCode;
+    }
 };
 PinterestService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -458,7 +495,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     authUrl: 'https://api.pinterest.com/oauth/',
-    redirectUri: 'https://alinecintra.github.io/pinupload/oauth2/callback1',
+    redirectUri: 'https://alinecintra.github.io/pinupload/oauth2/callback',
     clientId: '5048714817494364240'
 };
 /*
