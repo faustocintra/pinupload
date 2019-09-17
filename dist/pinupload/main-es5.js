@@ -405,7 +405,8 @@ var OAuth2CallbackComponent = /** @class */ (function () {
                         this.service.setAccessCode(queryParams['code']);
                     }
                     else {
-                        this.router.navigate(['/login']);
+                        console.log(queryParams);
+                        // this.router.navigate(['/login']);
                     }
                 }
                 catch (error) {
