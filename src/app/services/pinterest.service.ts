@@ -29,6 +29,12 @@ window.location.href = this.env.authUrl + '?' + params.toString();
 // asdf
 
 }
+
+  setAccessCode(accessCode: string) {
+
+    this.accessCode = accessCode;
+  }
+
 /*async getToken() {
 
     const params = new HttpParams();
