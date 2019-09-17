@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class PinterestService {
+  accessCode: string;
 
   constructor(
     private http: HttpClient,
@@ -13,29 +14,23 @@ export class PinterestService {
 
   private env = environment;
 
-  async getToken() {
+  private acessCode: string = '';
 
-    const params = new HttpParams();
+  initLogin() {
+    
+    const params = new HttpParams()
+      .set('response_type', 'code')
+      .set('client_id', this.env.clientId)
+      .set('scope', 'read_public,write_public')
+      .set('redirect_uri', this.env.redirectUri);
 
-    params.set('response_type', 'code');
-    params.set('client_id', this.env.clientId);
-    params.set('scope', 'read_public,write_public');
-    params.set('state', 'abc123');
+    //Redireciona para o site do Pinterest para fazer login
+    window.location.href = this.env.authUrl + '?' + params.toString();
 
-    let token;
+  }
 
-    try {
-      const promise = await this.http.get(this.env.authUrl, {params: params});
-      console.log('TOKEN: ' + token);
-      promise.subscribe(
-        ret => token = ret
-      );
-      return token;
-    }
-    catch(erro) {
-      console.error(erro);
-    }
-
+  setAccessCode(accessCode: string) {
+    this.accessCode = accessCode;
   }
 
 }
