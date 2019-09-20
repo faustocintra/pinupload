@@ -532,7 +532,7 @@ var PinterestService = /** @class */ (function () {
         var _this = this;
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
             .set('grant_type', 'authorization_code')
-            .set('client-id', this.env.clientId)
+            .set('client_id', this.env.clientId)
             .set('client_secret', this.env.clientSecret)
             .set('code', this.accessCode);
         this.http.post(this.env.tokenUri, null, { params: params }).subscribe(function (res) {
@@ -557,6 +557,33 @@ var PinterestService = /** @class */ (function () {
     return PinterestService;
 }());
 
+// OBSERVAÇÃO : ESTE METODO NÃO DEU CERTO
+/*async getToken() {
+
+    const params = new HttpParams();
+
+    params.set('response_type', 'code');
+    p
+  aarams.set('redirect_uri', this.env.redirectUri);
+    params.set('client_id', this.env.clientId);
+    params.set('scope', 'read_public,write_public');
+    params.set('state', 'abc123');
+
+    let token;
+
+    try {
+      const promise = await this.http.get(this.env.authUrl, {params: params});
+      console.log('TOKEN: ' + token);
+      promise.subscribe(
+        ret => token = ret
+      );
+      return token;
+    }
+    catch(erro) {
+      console.error(erro);
+    }
+
+  }*/
 
 
 /***/ }),
