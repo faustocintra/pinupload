@@ -396,22 +396,17 @@ var OAuth2CallbackComponent = /** @class */ (function () {
     }
     OAuth2CallbackComponent.prototype.ngOnInit = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var queryParams;
+            var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                try {
-                    queryParams = this.route.queryParams;
-                    if (queryParams['code']) {
-                        console.log('*** ACCESS CODE ***', queryParams['code']);
-                        this.service.setAccessCode(queryParams['code']);
+                this.route.queryParams.subscribe(function (params) {
+                    if (params.code) {
+                        console.log('Access code', params.code);
+                        _this.service.setAccessCode(params.code);
                     }
                     else {
-                        console.log(queryParams);
-                        // this.router.navigate(['/login']);
+                        console.error('ERRO DE ACCESS CODE');
                     }
-                }
-                catch (error) {
-                    console.error(error);
-                }
+                });
                 return [2 /*return*/];
             });
         });

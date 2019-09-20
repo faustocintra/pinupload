@@ -383,20 +383,15 @@ let OAuth2CallbackComponent = class OAuth2CallbackComponent {
     }
     ngOnInit() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            try {
-                let queryParams = this.route.queryParams;
-                if (queryParams['code']) {
-                    console.log('*** ACCESS CODE ***', queryParams['code']);
-                    this.service.setAccessCode(queryParams['code']);
+            this.route.queryParams.subscribe(params => {
+                if (params.code) {
+                    console.log('Access code', params.code);
+                    this.service.setAccessCode(params.code);
                 }
                 else {
-                    console.log(queryParams);
-                    // this.router.navigate(['/login']);
+                    console.error('ERRO DE ACCESS CODE');
                 }
-            }
-            catch (error) {
-                console.error(error);
-            }
+            });
         });
     }
 };
