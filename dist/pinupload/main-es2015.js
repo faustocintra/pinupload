@@ -441,8 +441,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let OAuth2CallbackComponent = class OAuth2CallbackComponent {
-    constructor(router, route, pinterest) {
-        this.router = router;
+    constructor(
+    //private router: Router,
+    route, pinterest) {
         this.route = route;
         this.pinterest = pinterest;
     }
@@ -465,7 +466,6 @@ let OAuth2CallbackComponent = class OAuth2CallbackComponent {
     }
 };
 OAuth2CallbackComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_3__["PinterestService"] }
 ];

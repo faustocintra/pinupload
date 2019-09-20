@@ -447,8 +447,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var OAuth2CallbackComponent = /** @class */ (function () {
-    function OAuth2CallbackComponent(router, route, pinterest) {
-        this.router = router;
+    function OAuth2CallbackComponent(
+    //private router: Router,
+    route, pinterest) {
         this.route = route;
         this.pinterest = pinterest;
     }
@@ -471,7 +472,6 @@ var OAuth2CallbackComponent = /** @class */ (function () {
         });
     };
     OAuth2CallbackComponent.ctorParameters = function () { return [
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
         { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_3__["PinterestService"] }
     ]; };
