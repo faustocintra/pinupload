@@ -389,26 +389,20 @@ let OAuth2CallbackComponent = class OAuth2CallbackComponent {
         this.pinterest = pinterest;
     }
     ngOnInit() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            try {
-                let queryParams = yield this.route.queryParams.toPromise();
-                console.log(queryParams);
-                if (queryParams['code']) { // Se existir o parâmetro chamado 'code'
-                    console.log('*** ACCESS CODE: ' + queryParams['code']);
-                    // Salva o access code para uso posterior
-                    this.pinterest.setAccessCode(queryParams['code']);
-                    // Retorna à página inicial
-                    // this.router.navigate(['/home']);
-                }
-                else { // Não tem parâmetro 'code', provavelmente cancelou o login
-                    // Retorna à página de login
-                    this.router.navigate(['/login']);
-                }
+        this.route.queryParams.subscribe(params => {
+            if (params.code) { //Se existir o parâmetro chamado 'code'
+                console.log('Acess code: ');
+                console.log(params.code);
+                //Salva o acess code para uso posterior
+                this.pinterest.setAccessCode(params.code);
+                //Retorna à página inicial
+                //this.route.nagigate(['/']);
             }
-            catch (error) {
-                console.error(error);
-                // Deu erro no login; retornamos à página de login
-                // this.router.navigate(['/login']);
+            else {
+                console.error('ERRO DE ACESS CODE');
+                //Deu erro no login;
+                //Retornamos à página de login
+                //this.router.naginate(['/login']);
             }
         });
     }
