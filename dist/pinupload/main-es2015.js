@@ -435,6 +435,7 @@ let PinterestService = class PinterestService {
         this.http = http;
         this.env = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"];
         this.accessCode = '';
+        this.accessToken = '';
     }
     initLogin() {
         const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
@@ -445,8 +446,35 @@ let PinterestService = class PinterestService {
             .set('redirect_uri', this.env.redirectUri);
         window.location.href = `${this.env.authUrl}?${params.toString()}`;
     }
+    getAccessToken() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+                .set('grant_type', 'authorization_code')
+                .set('client_id', this.env.clientId)
+                .set('client_secret', this.env.clientSecret)
+                .set('code', this.accessCode);
+            // this.http.post(this.env.authTokenUrl, null, { params }).subscribe(
+            //   res => {
+            //     this.accessToken = res['accessToken'];
+            //     console.log('accessToken', this.accessToken);
+            //   },
+            //   error => {
+            //     console.error('ERRO DE ACCESS TOKEN');
+            //   }
+            // )
+            try {
+                const res = yield this.http.post(this.env.authTokenUrl, null, { params }).toPromise();
+                this.accessToken = res['accessToken'];
+                console.log('accessToken', this.accessToken);
+            }
+            catch (error) {
+                console.error('ERRO DE ACCESS TOKEN', error);
+            }
+        });
+    }
     setAccessCode(accessCode) {
         this.accessCode = accessCode;
+        this.getAccessToken();
     }
 };
 PinterestService.ctorParameters = () => [
@@ -476,10 +504,12 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
-    production: false,
+    authTokenUrl: 'https://api.pinterest.com/v1/oauth/token',
     authUrl: 'https://api.pinterest.com/oauth',
-    redirectUri: 'https://fatecandre.github.io/pinupload/oauth2/callback',
     clientId: '5049983015757855021',
+    clientSecret: '11980c59c477800758bcfd4bf58eeacac07b5bf8a6a185e28728ab7f7995a64a',
+    production: false,
+    redirectUri: 'https://fatecandre.github.io/pinupload/oauth2/callback',
     state: 'abc123',
 };
 /*

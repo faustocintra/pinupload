@@ -453,6 +453,7 @@ var PinterestService = /** @class */ (function () {
         this.http = http;
         this.env = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"];
         this.accessCode = '';
+        this.accessToken = '';
     }
     PinterestService.prototype.initLogin = function () {
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
@@ -463,8 +464,38 @@ var PinterestService = /** @class */ (function () {
             .set('redirect_uri', this.env.redirectUri);
         window.location.href = this.env.authUrl + "?" + params.toString();
     };
+    PinterestService.prototype.getAccessToken = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var params, res, error_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+                            .set('grant_type', 'authorization_code')
+                            .set('client_id', this.env.clientId)
+                            .set('client_secret', this.env.clientSecret)
+                            .set('code', this.accessCode);
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, this.http.post(this.env.authTokenUrl, null, { params: params }).toPromise()];
+                    case 2:
+                        res = _a.sent();
+                        this.accessToken = res['accessToken'];
+                        console.log('accessToken', this.accessToken);
+                        return [3 /*break*/, 4];
+                    case 3:
+                        error_1 = _a.sent();
+                        console.error('ERRO DE ACCESS TOKEN', error_1);
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
     PinterestService.prototype.setAccessCode = function (accessCode) {
         this.accessCode = accessCode;
+        this.getAccessToken();
     };
     PinterestService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -495,10 +526,12 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 var environment = {
-    production: false,
+    authTokenUrl: 'https://api.pinterest.com/v1/oauth/token',
     authUrl: 'https://api.pinterest.com/oauth',
-    redirectUri: 'https://fatecandre.github.io/pinupload/oauth2/callback',
     clientId: '5049983015757855021',
+    clientSecret: '11980c59c477800758bcfd4bf58eeacac07b5bf8a6a185e28728ab7f7995a64a',
+    production: false,
+    redirectUri: 'https://fatecandre.github.io/pinupload/oauth2/callback',
     state: 'abc123',
 };
 /*
