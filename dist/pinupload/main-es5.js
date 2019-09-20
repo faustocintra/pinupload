@@ -482,7 +482,7 @@ var PinterestService = /** @class */ (function () {
                     case 2:
                         res = _a.sent();
                         console.log('response', res);
-                        this.accessToken = res['accessToken'];
+                        this.accessToken = res['access_token'];
                         console.log('accessToken', this.accessToken);
                         return [3 /*break*/, 4];
                     case 3:
