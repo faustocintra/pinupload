@@ -464,7 +464,6 @@ let PinterestService = class PinterestService {
             // )
             try {
                 const res = yield this.http.post(this.env.authTokenUrl, null, { params }).toPromise();
-                console.log('response', res, res['access_token']);
                 this.accessToken = res['access_token'];
                 console.log('accessToken', this.accessToken);
             }
