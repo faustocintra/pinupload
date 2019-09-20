@@ -512,6 +512,7 @@ var PinterestService = /** @class */ (function () {
         this.http = http;
         this.env = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"];
         this.accessCode = '';
+        this.accessToken = '';
     }
     PinterestService.prototype.initLogin = function () {
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
@@ -525,6 +526,25 @@ var PinterestService = /** @class */ (function () {
     };
     PinterestService.prototype.setAccessCode = function (accessCode) {
         this.accessCode = accessCode;
+        this.getAccessToken();
+    };
+    PinterestService.prototype.getAccessToken = function () {
+        var _this = this;
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('grant_type', 'authorization_code')
+            .set('client-id', this.env.clientId)
+            .set('client_secret', this.env.clientSecret)
+            .set('code', this.accessCode);
+        this.http.post(this.env.tokenUri, null, { params: params }).subscribe(function (res) {
+            console.log('--TOKEN--');
+            _this.accessToken = res['access_token'];
+            console.log(_this.accessToken);
+            //this.router.navigate(['/']);
+        }, function (error) {
+            console.error('ERRO DE TOKEN');
+            console.error(error);
+            //
+        });
     };
     PinterestService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -559,6 +579,8 @@ var environment = {
     authUrl: 'https://api.pinterest.com/oauth/',
     //redirect_uri http://<usuario do github> .github.io/pinupload/oauth2/callback
     redirectUri: 'https://evaldolucas.github.io/pinupload/oauth2/callback',
+    tokenUri: 'https://api.pinterest.com/v1/oauth/token',
+    clientSecret: '8e973e003d40389c67416ff39282e0fe761fe7643825babd74227d8ba541f0cf',
     clientId: '5048713883991191358' // cada um tem o seu (Pinterest)
 };
 /*
