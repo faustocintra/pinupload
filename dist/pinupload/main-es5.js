@@ -481,6 +481,7 @@ var PinterestService = /** @class */ (function () {
                         return [4 /*yield*/, this.http.post(this.env.authTokenUrl, null, { params: params }).toPromise()];
                     case 2:
                         res = _a.sent();
+                        console.log('response', res);
                         this.accessToken = res['accessToken'];
                         console.log('accessToken', this.accessToken);
                         return [3 /*break*/, 4];
