@@ -446,6 +446,7 @@ let PinterestService = class PinterestService {
         this.http = http;
         this.env = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"];
         this.accessCode = '';
+        this.accessToken = '';
     }
     initLogin() {
         const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
@@ -458,6 +459,24 @@ let PinterestService = class PinterestService {
     }
     setAccessCode(accessCode) {
         this.accessCode = accessCode;
+        this.getAccessToken();
+    }
+    getAccessToken() {
+        const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('grant_type', 'authorization_code')
+            .set('client_id', this.env.clientId)
+            .set('client_secret', this.env.clientSecret)
+            .set('code', this.accessCode);
+        this.http.post(this.env.tokenUri, null, { params: params }).subscribe(res => {
+            console.log('--TOKEN--');
+            this.accessToken = res['access_token'];
+            console.log(this.accessToken);
+            //this.router.navigate(['/']);
+        }, error => {
+            console.error('ERRO DE TOKEN');
+            console.error(error);
+            //this.router.navigate(['/login']);
+        });
     }
 };
 PinterestService.ctorParameters = () => [
@@ -490,7 +509,9 @@ const environment = {
     production: false,
     authUrl: 'https://api.pinterest.com/oauth/',
     redirectUri: 'https://danilomatias.github.io/pinupload/oauth2/callback',
-    clientId: '5048713209628899439'
+    tokenUri: 'https://api.pinterest.com/v1/oauth/token',
+    clientId: '5048713209628899439',
+    clientSecret: '8def3b7ac59572fa4266a0e44061416632c45f2bd5ff2267ed7fba5ce0312f85'
 };
 /*
  * For easier debugging in development mode, you can import the following file
