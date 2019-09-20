@@ -395,34 +395,21 @@ var OAuth2CallbackComponent = /** @class */ (function () {
         this.pinterest = pinterest;
     }
     OAuth2CallbackComponent.prototype.ngOnInit = function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var queryParams, error_1;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.route.queryParams.toPromise()];
-                    case 1:
-                        queryParams = _a.sent();
-                        if (queryParams['code']) { //Se existir parametro chamado "code"
-                            console.log('*** ACCESS CODE ' + queryParams['code']);
-                            //Salva o access code para uso posterior
-                            this.pinterest.setAccessCode(queryParams['code']);
-                            //Retorna a pagina iniciaç
-                            //this.router.navigate(['/home]);
-                        }
-                        else { //nao tem parametro "code", provavelmente cancelou o login
-                            //Retorna a pagina de Login
-                            this.router.navigate(['/login']);
-                        }
-                        return [3 /*break*/, 3];
-                    case 2:
-                        error_1 = _a.sent();
-                        console.error(error_1);
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
-                }
-            });
+        var _this = this;
+        this.route.queryParams.subscribe(function (params) {
+            if (params.code) { //Se existit o parametro chamado 'code
+                console.log('Access code:');
+                console.log(params.code);
+                //Salva o access code para uso posterior
+                _this.pinterest.setAccessCode(params.code);
+                //Retorna à pagina inicial
+                //this.router.navigate(['/']);
+            }
+            else {
+                console.error('ERRO DE ACCESS CODE');
+                //deu erro no login; retornamos à pagina de login
+                //this.router.navigate(['/login']);
+            }
         });
     };
     OAuth2CallbackComponent.ctorParameters = function () { return [
