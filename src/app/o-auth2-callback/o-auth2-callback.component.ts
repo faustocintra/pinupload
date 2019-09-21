@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute} from '@Angular/router';
+import { /* Router,*/ ActivatedRoute} from '@angular/router';
 import{PinterestService} from '../services/pinterest.service';
 
 
@@ -11,11 +11,35 @@ import{PinterestService} from '../services/pinterest.service';
 export class OAuth2CallbackComponent implements OnInit {
 
   constructor(
-    private router: Router,
+    //private router: Router,
     private route: ActivatedRoute,
     private pinterest: PinterestService 
   ) { }
 
+
+  ngOnInit() {
+
+    this.route.queryParams.subscribe(
+      params=> {
+
+        if(params.code) {// Se existir o parametro camado 'code'
+
+        console.log('Access code:');
+        console.log(params.code);
+        //Salve o access code para uso posterior
+        this.pinterest.setAccessCode(params.code);
+        //Retorna a pagina inicial
+        //this.router.navigate(['/']);   
+        }
+        else{
+          console.error('ERRO DE ACCESS CODE');
+          //Deu erro no login; retornamos a pagina de login
+          //this.router.navigate(['/']);
+        }
+      }
+    );
+  }
+  /*
   async ngOnInit() {
 
     try{
@@ -41,4 +65,6 @@ export class OAuth2CallbackComponent implements OnInit {
         //this.router.navigate (['/login']);
     }
   }
+
+  */
 }
