@@ -17,22 +17,22 @@ export class OAuth2CallbackComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(
-      params =>{
-        if(params.code){//Se existir o parâmetro chamado 'code'
-          console.log('Acess code: ');
+      params => {
+        if(params.code) { // Se existir o parâmetro chamado 'code'
+          console.log('Access code:');
           console.log(params.code);
-          //Salva o acess code para uso posterior
+          // Salva o access code para uso posterior
           this.pinterest.setAccessCode(params.code);
-          //Retorna à página inicial
-          //this.route.nagigate(['/']);
+          // Retorna à página inicial
+          //this.router.navigate(['/']); 
         }
-        else{
-          console.error('ERRO DE ACESS CODE');
-          //Deu erro no login;
-          //Retornamos à página de login
-          //this.router.naginate(['/login']);
+        else {
+          console.error('ERRO DE ACCESS CODE');
+          // Deu erro no login; retornamos à página de login
+          // this.router.navigate(['/login']);          
         }
       }
-    );
+    ); 
   }
+
 }
