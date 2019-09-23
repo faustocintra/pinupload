@@ -397,19 +397,18 @@ var OAuth2CallbackComponent = /** @class */ (function () {
     OAuth2CallbackComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.queryParams.subscribe(function (params) {
-            if (params.code) { //Se existir o parâmetro chamado 'code'
-                console.log('Acess code: ');
+            if (params.code) { // Se existir o parâmetro chamado 'code'
+                console.log('Access code:');
                 console.log(params.code);
-                //Salva o acess code para uso posterior
+                // Salva o access code para uso posterior
                 _this.pinterest.setAccessCode(params.code);
-                //Retorna à página inicial
-                //this.route.nagigate(['/']);
+                // Retorna à página inicial
+                //this.router.navigate(['/']); 
             }
             else {
-                console.error('ERRO DE ACESS CODE');
-                //Deu erro no login;
-                //Retornamos à página de login
-                //this.router.naginate(['/login']);
+                console.error('ERRO DE ACCESS CODE');
+                // Deu erro no login; retornamos à página de login
+                // this.router.navigate(['/login']);          
             }
         });
     };
@@ -477,15 +476,15 @@ var PinterestService = /** @class */ (function () {
             .set('client_id', this.env.clientId)
             .set('client_secret', this.env.clientSecret)
             .set('code', this.accessCode);
-        this.http.post(this.env.tokenURI, null, { params: params }).subscribe(function (res) {
-            console.log('--TOKE--');
+        this.http.post(this.env.tokenUri, null, { params: params }).subscribe(function (res) {
+            console.log('--TOKEN--');
             _this.accessToken = res['access_token'];
             console.log(_this.accessToken);
-            //this.router.navigate(['/'])
+            //this.router.navigate(['/']);
         }, function (error) {
             console.error('ERRO DE TOKEN');
             console.error(error);
-            //this.router.navigate(['/login'])
+            //this.router.navigate(['/login']);
         });
     };
     PinterestService.ctorParameters = function () { return [
@@ -521,7 +520,7 @@ var environment = {
     authUrl: 'https://api.pinterest.com/oauth/',
     //redirect_Uri:'https://<usuario-do-github>.github.io/pinupload/oauth2/callback
     redirectUri: 'https://thalescampos.github.io/pinupload/oauth2/callback',
-    tokenURI: 'https://api.pinterest.com/v1/oauth/',
+    tokenUri: 'https://api.pinterest.com/v1/oauth/',
     clientId: '5048713255460060617',
     clientSecret: '5902326ec1dcf1157dd1320991cbac79e891bd28a429df2919078b74c747bccc'
 };
