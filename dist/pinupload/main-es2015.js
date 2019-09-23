@@ -510,7 +510,7 @@ const environment = {
     authUrl: 'https://api.pinterest.com/oauth/',
     //redirect_Uri:'https://<usuario-do-github>.github.io/pinupload/oauth2/callback
     redirectUri: 'https://thalescampos.github.io/pinupload/oauth2/callback',
-    tokenUri: 'https://api.pinterest.com/v1/oauth/token',
+    tokenUri: 'https://api.pinterest.com/v1/oauth/',
     clientId: '5048713255460060617',
     clientSecret: '5902326ec1dcf1157dd1320991cbac79e891bd28a429df2919078b74c747bccc'
 };
