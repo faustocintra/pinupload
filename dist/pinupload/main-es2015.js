@@ -111,7 +111,7 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
       </li>
     </ul>
     <router-outlet></router-outlet>
-    <a [routerLink = "['login']"]>Login</a>
+    <a [routerLink] = "['login']">Login</a>
     <router-outlet></router-outlet>
   `
     })
