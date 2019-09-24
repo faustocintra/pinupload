@@ -1,41 +1,59 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment'; 
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PinterestService {
 
-  constructor(
-    private http: HttpClient,
-  ) { }
-
   private env = environment;
 
-  async getToken() {
+  private accessCode : string;
+  private accessToken: string;
 
-    const params = new HttpParams();
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
-    params.set('response_type', 'code');
-    params.set('redirect_uri', this.env.redirectUri);
-    params.set('client_id', this.env.clientId);
-    params.set('scope', 'read_public,write_public');
-    params.set('state', 'abc123');
+  initLogin() {
+    const baseUrl : string = 'https://api.pinterest.com/oauth/?';
+    const params = new HttpParams()
+      .set('response_type', 'code')
+      .set('client_id', this.env.clientId)
+      .set('scope', 'read_public,write_public')
+      .set('redirect_uri', 'https://willdfz.github.io/pinupload/oauth2/callback');
 
-    let token;
+    window.location.href = baseUrl + params.toString();
+        
+  }
 
-    try {
-      const promise = await this.http.get(this.env.authUrl, {params: params});
-      console.log('TOKEN: ' + token);
-      promise.subscribe(
-        ret => token = ret
-      );
-      return token;
-    }
-    catch(erro) {
-      console.error(erro);
-    }
+  setAccessCode(accessCode: string) {
+    this.accessCode = accessCode;
+    this.getAccessToken();
+  }
+
+  private getAccessToken() {
+    const baseUrl = 'https://api.pinterest.com/v1/oauth/token?';
+    const params = new HttpParams()
+      .set('grant_type', 'authorization_code')
+      .set('client_id', this.env.clientId)
+      .set('client_secret', this.env.clientSecret)
+      .set('code', this.accessCode);
+      
+    this.http.post(baseUrl, null, {params: params}).subscribe(
+      res => {
+        console.log('--TOKEN--');
+        this.accessToken = res['access_token'];
+        console.log(this.accessToken);
+      },
+      error => {
+        console.error('ERRO DE TOKEN');
+        console.error(error);
+      }
+    );
 
   }
 

@@ -3,14 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>Pinupload</title>
-  <base href="/pinupload/">
-
+  <base href="/pinupload-next/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+<link rel="stylesheet" href="styles.6ce6f4a40c62c619277e.css"></head>
 <body>
+    <script>
+        (function(){
+          var redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          if (redirect && redirect != location.href) {
+            history.replaceState(null, null, redirect);
+            // REMOVE THIS - just showing the redirect route in the UI
+            document.body.setAttribute('message', 'This page was redirected by 404.html, from the route: ' + redirect);
+          }
+          else {
+            // REMOVE THIS - just showing the redirect route in the UI
+            document.body.setAttribute('message', 'This page was loaded directly from the index.html file');
+          }
+        })();
+      </script>
   <app-root></app-root>
-<script src="runtime-es2015.js" type="module"></script><script src="polyfills-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="vendor-es2015.js" type="module"></script><script src="main-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es5.js" nomodule defer></script></body>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+<script src="runtime-es2015.5bc68c0dd8cf137fbe82.js" type="module"></script><script src="polyfills-es2015.5cb1e996b2a376ba4548.js" type="module"></script><script src="runtime-es5.ee0aae13fb762b150814.js" nomodule defer></script><script src="polyfills-es5.f2cb7085da8422a86399.js" nomodule defer></script><script src="main-es2015.a7ad0be6ab1e03cc011f.js" type="module"></script><script src="main-es5.c268869676b689f5d99a.js" nomodule defer></script></body>
 </html>
