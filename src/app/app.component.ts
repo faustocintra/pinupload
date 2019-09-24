@@ -23,6 +23,8 @@ import { Component } from '@angular/core';
       </li>
     </ul>
     <router-outlet></router-outlet>
+    <a [routerLink] = "['login']">Login</a>
+    <router-outlet></router-outlet>
   `,
   styles: []
 })
