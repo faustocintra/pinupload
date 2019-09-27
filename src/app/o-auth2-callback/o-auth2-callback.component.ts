@@ -15,26 +15,24 @@ export class OAuth2CallbackComponent implements OnInit {
     private pinterest: PinterestService  
   ) {}
 
-  async ngOnInit() {
-    try{
-      let queryParams = await this.route.queryParams.toPromise();
-      if(queryParams['code']){ //Se existir parametro chamado "code"
-        console.log('*** ACCESS CODE ' + queryParams['code']);
-        //Salva o access code para uso posterior
-        this.pinterest.setAccessCode(queryParams['code']);
-        //Retorna a pagina iniciaç
-        //this.router.navigate(['/home]);
+  ngOnInit() {
+    this.route.queryParams.subscribe(
+      params => {
+        if(params.code) { //Se existit o parametro chamado 'code
+          console.log('Access code:');
+          console.log(params.code);
+          //Salva o access code para uso posterior
+          this.pinterest.setAccessCode(params.code);
+          //Retorna à pagina inicial
+          //this.router.navigate(['/']);
+        }
+        else{
+          console.error('ERRO DE ACCESS CODE');
+          //deu erro no login; retornamos à pagina de login
+          //this.router.navigate(['/login']);
+        }
       }
-      else{ //nao tem parametro "code", provavelmente cancelou o login
-      //Retorna a pagina de Login
-      this.router.navigate(['/login']);
-      }
-    }
-    catch(error){
-      console.error(error);
-      //Deu erro no login; retornamos a pagina de login
-      //this.router.navigate(['/login']);
-    }
+    )
   }
 
 }
