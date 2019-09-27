@@ -26,6 +26,7 @@ export class OAuth2CallbackComponent implements OnInit {
         }
         else {
           console.error('ERRO DE ACCESS CODE');
+          
         }
       }
     );    

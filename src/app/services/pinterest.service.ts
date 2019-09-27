@@ -52,6 +52,7 @@ export class PinterestService {
       error => {
         console.error('ERRO DE TOKEN');
         console.error(error);
+        
       }
     );
 
