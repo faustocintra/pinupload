@@ -12,12 +12,10 @@ export class LoginComponent implements OnInit {
     private pinterest: PinterestService
   ) { }
 
-  ngOnInit() {
-    
-  }
+  token : any = '';
 
-  doLogin() {
-    this.pinterest.initLogin();
+  ngOnInit() {
+    this.token = this.pinterest.getToken();
   }
 
 }
