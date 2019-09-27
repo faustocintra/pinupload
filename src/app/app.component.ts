@@ -3,11 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <div style="text-align:center">
-      <h1>
-        Pinupload
-      </h1>
-    </div>
+    <h1>Pinupload teste</h1>
     <router-outlet></router-outlet>
   `,
   styles: []
