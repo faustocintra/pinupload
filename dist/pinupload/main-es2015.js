@@ -461,7 +461,6 @@ let PinterestService = class PinterestService {
     setAccessCode(accessCode) {
         this.accessCode = accessCode;
         this.getAccessToken();
-        this.getLoggedInUser();
     }
     getLoggedInUser() {
         const endPoint = 'me/';
@@ -483,6 +482,7 @@ let PinterestService = class PinterestService {
             console.log('--TOKEN--');
             this.accessToken = res['access_token'];
             console.log(this.accessToken);
+            this.getLoggedInUser(); //chama a função de logIn
         }, error => {
             console.error('ERRO DE TOKEN');
             console.error(error);
