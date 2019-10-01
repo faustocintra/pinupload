@@ -461,6 +461,17 @@ let PinterestService = class PinterestService {
     setAccessCode(accessCode) {
         this.accessCode = accessCode;
         this.getAccessToken();
+        this.getLoggedInUser();
+    }
+    getLoggedInUser() {
+        const endPoint = 'me/';
+        const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('access_token', this.accessToken);
+        this.http.get(this.env.apiUri + endPoint, { params: params }).subscribe(user => {
+            console.log(user);
+        }, error => {
+            console.error(error);
+        });
     }
     getAccessToken() {
         const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
@@ -509,6 +520,7 @@ const environment = {
     authUrl: 'https://api.pinterest.com/oauth/',
     redirectUri: 'https://fulvio7.github.io/pinupload/oauth2/callback',
     tokenUri: 'https://api.pinterest.com/v1/oauth/token',
+    apiUri: 'https://api.pinterest.com/v1/',
     clientId: '5048714896624104885',
     clientSecret: 'c53a185dd14286403af2f000e3bf5fcdc4e152138c877d555ea58b0c180313b4'
 };
