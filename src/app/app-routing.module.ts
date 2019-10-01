@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { OAuth2CallbackComponent } from './o-auth2-callback/o-auth2-callback.component';
+import { UserComponent } from './user/user.component';
+
 
 
 const routes: Routes = [
