@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-
+import {Router} from '@angular/router';
 
 
 @Injectable({
@@ -11,6 +11,7 @@ export class PinterestService {
 
   constructor(
     private http: HttpClient,
+    private router: Router
   ) { }
 
   private env = environment;
@@ -50,6 +51,8 @@ export class PinterestService {
         user=> {
           this.loggedInUser = user;
           console.log(user);
+          this.router.navigate(['/user']);
+
         },
 
         error => {
@@ -60,7 +63,7 @@ export class PinterestService {
 
     getUser(){
 
-      return this.loggedInUser();
+      return this.loggedInUser;
     }
 
   
