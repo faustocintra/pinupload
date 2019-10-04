@@ -528,6 +528,22 @@ var PinterestService = /** @class */ (function () {
         this.accessCode = accessCode;
         this.getAccessToken();
     };
+    PinterestService.prototype.getLoggedInUser = function () {
+        var _this = this;
+        var endPoint = 'me/';
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('access_token', this.accessToken)
+            .set('fields', 'id,username,first_name,last_name,bio,image');
+        this.http.get(this.env.apiUri + endPoint, { params: params }).subscribe(function (user) {
+            _this.loggedInUser = user;
+            console.log(user);
+        }, function (error) {
+            console.error(error);
+        });
+    };
+    PinterestService.prototype.getUser = function () {
+        return this.loggedInUser();
+    };
     PinterestService.prototype.getAccessToken = function () {
         var _this = this;
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
@@ -607,6 +623,7 @@ var environment = {
     //redirect_uri http://<usuario do github> .github.io/pinupload/oauth2/callback
     redirectUri: 'https://evaldolucas.github.io/pinupload/oauth2/callback',
     tokenUri: 'https://api.pinterest.com/v1/oauth/token',
+    apiUri: 'https://api.pinterest.com/v1/',
     clientSecret: '8e973e003d40389c67416ff39282e0fe761fe7643825babd74227d8ba541f0cf',
     clientId: '5048713883991191358' // cada um tem o seu (Pinterest)
 };
