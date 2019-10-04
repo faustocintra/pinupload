@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +16,7 @@ export class PinterestService {
   private env = environment;
   private accessCode: string = '';
   private accessToken : string = '';
+  private loggedInUser: any;
 
     initLogin() 
   {
@@ -35,8 +38,33 @@ export class PinterestService {
 
     this.accessCode = accessCode;
     this.getAccessToken();
+  }  
+    getLoggedInUser() {
 
-  }
+      const endPoint = 'me/';
+      const params = new HttpParams()
+      .set('access_token', this.accessToken)
+      .set('fields', 'id,username,first_name,last_name,bio,image');
+
+      this.http.get(this.env.apiUri + endPoint, {params: params}).subscribe (
+        user=> {
+          this.loggedInUser = user;
+          console.log(user);
+        },
+
+        error => {
+          console.error(error);
+        }
+      );
+    }
+
+    getUser(){
+
+      return this.loggedInUser();
+    }
+
+  
+  
   private getAccessToken() {
     const params = new HttpParams()
     .set('grant_type', 'authorization_code' )
@@ -62,6 +90,7 @@ export class PinterestService {
     );
   }
 }
+
 
 
 // OBSERVAÇÃO : ESTE METODO NÃO DEU CERTO
