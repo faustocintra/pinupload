@@ -56,6 +56,17 @@ module.exports = "<p>o-auth2-callback works!</p>\n"
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/user/user.component.html":
+/*!********************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/user/user.component.html ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>user works!</p>\n"
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -149,6 +160,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./o-auth2-callback/o-auth2-callback.component */ "./src/app/o-auth2-callback/o-auth2-callback.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
+
 
 
 
@@ -169,7 +182,8 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"],
                 _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_9__["OAuth2CallbackComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"]
+                _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"],
+                _user_user_component__WEBPACK_IMPORTED_MODULE_11__["UserComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -240,7 +254,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vQzpcXHBpbnVwbG9hZC9zcmNcXGFwcFxcbG9naW5cXGxvZ2luLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNHLGtCQUFBO0FDQ0giLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XG4gICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59IiwiZGl2IHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */"
+module.exports = "div {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dvbmNpbi9BVUxBL3BpbnVwbG9hZC9zcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNHLGtCQUFBO0FDQ0giLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XG4gICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59IiwiZGl2IHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -469,6 +483,17 @@ var PinterestService = /** @class */ (function () {
         this.accessCode = accessCode;
         this.getAccessToken();
     };
+    PinterestService.prototype.getLoggedInUser = function () {
+        var endPoint = 'me/';
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('access_token', this.accessToken)
+            .set('fields', 'id,username,first_name,last_name,bio,image');
+        this.http.get(this.env.apiUri + endPoint, { params: params }).subscribe(function (user) {
+            console.log(user);
+        }, function (error) {
+            console.error(error);
+        });
+    };
     PinterestService.prototype.getAccessToken = function () {
         var _this = this;
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
@@ -480,6 +505,7 @@ var PinterestService = /** @class */ (function () {
             console.log('--TOKEN--');
             _this.accessToken = res['access_token'];
             console.log(_this.accessToken);
+            _this.getLoggedInUser();
             //this.router.navigate(['/']);
         }, function (error) {
             console.error('ERRO DE TOKEN');
@@ -502,6 +528,50 @@ var PinterestService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/user/user.component.scss":
+/*!******************************************!*\
+  !*** ./src/app/user/user.component.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/user/user.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/user/user.component.ts ***!
+  \****************************************/
+/*! exports provided: UserComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserComponent", function() { return UserComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var UserComponent = /** @class */ (function () {
+    function UserComponent() {
+    }
+    UserComponent.prototype.ngOnInit = function () {
+    };
+    UserComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-user',
+            template: __webpack_require__(/*! raw-loader!./user.component.html */ "./node_modules/raw-loader/index.js!./src/app/user/user.component.html"),
+            styles: [__webpack_require__(/*! ./user.component.scss */ "./src/app/user/user.component.scss")]
+        })
+    ], UserComponent);
+    return UserComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -518,11 +588,12 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     authUrl: 'https://api.pinterest.com/oauth/',
-    //redirect_Uri:'https://<usuario-do-github>.github.io/pinupload/oauth2/callback
-    redirectUri: 'https://thalescampos.github.io/pinupload/oauth2/callback',
+    // redirect_uri: https://<usuario-do-github>.github.io/pinupload/oauth2/callback
+    redirectUri: 'https://faustocintra.github.io/pinupload/oauth2/callback',
     tokenUri: 'https://api.pinterest.com/v1/oauth/token',
-    clientId: '5048713255460060617',
-    clientSecret: '5902326ec1dcf1157dd1320991cbac79e891bd28a429df2919078b74c747bccc'
+    apiUri: 'https://api.pinterest.com/v1/',
+    clientId: '5048713194869147067',
+    clientSecret: '61229065b822b00bf68dda5c20381ba56c315eccd22e6067615a28e16c1c9c7b' // Cada um tem o seu
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -572,7 +643,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\pinupload\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/goncin/AULA/pinupload/src/main.ts */"./src/main.ts");
 
 
 /***/ })
