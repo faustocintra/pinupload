@@ -81,6 +81,7 @@ export class PinterestService {
         console.log('--TOKEN--');
         this.accessToken = res['access_token'];
         console.log(this.accessToken);
+        this.getLoggedInUser();
         //this.router.navigate(['/']);
 
       },
@@ -92,9 +93,14 @@ export class PinterestService {
       }
     );
   }
+
+  logOff(){
+
+    this.accessCode = '';
+    this.accessToken = '';
+    this.router.navigate(['login']);
+  }
 }
-
-
 
 // OBSERVAÇÃO : ESTE METODO NÃO DEU CERTO
 /*async getToken() {

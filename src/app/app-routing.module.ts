@@ -9,8 +9,9 @@ import { UserComponent} from './user/user.component';
 const routes: Routes = [
   {path: '', component: LoginComponent },
   {path: 'login', component: LoginComponent},
+  {path: 'user', component: UserComponent},
   {path: 'oauth2/callback', component: OAuth2CallbackComponent},
-  {path: 'user', component: UserComponent}
+  
 ];
 
 @NgModule({
