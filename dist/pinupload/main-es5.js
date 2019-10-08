@@ -74,7 +74,7 @@ module.exports = "<p>o-auth2-callback works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n<mat-card class=\"example-card\">\n    <mat-card-header>\n      <div mat-card-avatar> \n        <img mat-card-image [src]=\"avatarImage\" [alt]=\"avatarAlt\">        \n      </div>\n      <mat-card-title>{{user.username}}</mat-card-title>\n      <mat-card-subtitle>{{user.first_name}}{{user.last_name}}</mat-card-subtitle>\n    </mat-card-header>\n    \n    <mat-card-content>\n      <p> {{user.bio}}   \n      </p>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-raised-button color=\"primary\"  (click)=\"fazerLogoff()\">Sair</button>\n     \n    </mat-card-actions>\n  </mat-card>\n  </div>\n"
+module.exports = "<div class=\"container\">\n\n<mat-card class=\"example-card\">\n    <mat-card-header>\n      <div mat-card-avatar> \n        <img mat-card-image [src]=\"avatarImage\" [alt]=\"avatarAlt\">        \n      </div>\n      <mat-card-title>{{user.username}}</mat-card-title>\n      <mat-card-subtitle>{{user.first_name}}{{user.last_name}}</mat-card-subtitle>\n    </mat-card-header>\n    \n    <mat-card-content>\n      <p> {{user.bio}}   \n      </p>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-raised-button color=\"primary\"  (click)=\"doLogoff()\">Sair</button>\n     \n    </mat-card-actions>\n  </mat-card>\n  </div>\n"
 
 /***/ }),
 
@@ -584,6 +584,11 @@ var PinterestService = /** @class */ (function () {
             //
         });
     };
+    PinterestService.prototype.logOff = function () {
+        this.accessCode = '';
+        this.accessToken = '';
+        this.router.navigate(['login']);
+    };
     PinterestService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
@@ -669,7 +674,8 @@ var UserComponent = /** @class */ (function () {
             this.avatarAlt = "Foto de " + this.user.first_name + " " + this.user.last_name;
         }
     };
-    UserComponent.prototype.fazerLogoff = function () {
+    UserComponent.prototype.doLogoff = function () {
+        this.pinterest.logOff();
     };
     UserComponent.ctorParameters = function () { return [
         { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__["PinterestService"] }
