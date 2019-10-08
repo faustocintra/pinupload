@@ -566,6 +566,7 @@ let PinterestService = class PinterestService {
             console.log('--TOKEN--');
             this.accessToken = res['access_token'];
             console.log(this.accessToken);
+            this.getLoggedInUser();
             //this.router.navigate(['/']);
         }, error => {
             console.error('ERRO DE TOKEN');
