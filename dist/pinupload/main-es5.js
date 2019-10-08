@@ -74,7 +74,7 @@ module.exports = "<p>o-auth2-callback works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"example-card\">\n    <mat-card-header>\n      <div mat-card-avatar> \n        <img mat-card-image [src]=\"avatarImage\" [alt]=\"avatarAlt\">        \n      </div>\n      <mat-card-title>{{user.username}}</mat-card-title>\n      <mat-card-subtitle>{{user.first_name}}{{user.last_name}}</mat-card-subtitle>\n    </mat-card-header>\n    \n    <mat-card-content>\n      <p> {{user.bio}}   \n      </p>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-button (click)=\"fazerLogoff()\">Sair</button>\n     \n    </mat-card-actions>\n  </mat-card>\n"
+module.exports = "<div class=\"container\">\n\n<mat-card class=\"example-card\">\n    <mat-card-header>\n      <div mat-card-avatar> \n        <img mat-card-image [src]=\"avatarImage\" [alt]=\"avatarAlt\">        \n      </div>\n      <mat-card-title>{{user.username}}</mat-card-title>\n      <mat-card-subtitle>{{user.first_name}}{{user.last_name}}</mat-card-subtitle>\n    </mat-card-header>\n    \n    <mat-card-content>\n      <p> {{user.bio}}   \n      </p>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-raised-button color=\"primary\"  (click)=\"fazerLogoff()\">Sair</button>\n     \n    </mat-card-actions>\n  </mat-card>\n  </div>\n"
 
 /***/ }),
 
@@ -634,7 +634,7 @@ var PinterestService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyJ9 */"
+module.exports = ".container {\n  padding: 0 auto;\n}\n\n.mat-card-image {\n  height: 60px;\n  width: 60px;\n  border-radius: 50%;\n}\n\n.example-card {\n  max-width: 400px;\n}\n\n.example-header-image {\n  background-size: cover;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci9DOlxcVXNlcnNcXDEwOTA0ODE3MTMwMDdcXERlc2t0b3BcXHBpbnVwbG9hZC9zcmNcXGFwcFxcdXNlclxcdXNlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRUksZUFBQTtBQ0FKOztBREdBO0VBRUksWUFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ0RKOztBRElBO0VBRUksZ0JBQUE7QUNGSjs7QURLQTtFQUVRLHNCQUFBO0FDSFIiLCJmaWxlIjoic3JjL2FwcC91c2VyL3VzZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyIHtcclxuXHJcbiAgICBwYWRkaW5nOiAwIGF1dG87XHJcbn1cclxuXHJcbi5tYXQtY2FyZC1pbWFnZSB7XHJcblxyXG4gICAgaGVpZ2h0OiA2MHB4O1xyXG4gICAgd2lkdGg6IDYwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcblxyXG59XHJcbi5leGFtcGxlLWNhcmQge1xyXG5cclxuICAgIG1heC13aWR0aDogNDAwcHg7IFxyXG59XHJcblxyXG4uZXhhbXBsZS1oZWFkZXItaW1hZ2Uge1xyXG5cclxuICAgICAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG5cclxufSIsIi5jb250YWluZXIge1xuICBwYWRkaW5nOiAwIGF1dG87XG59XG5cbi5tYXQtY2FyZC1pbWFnZSB7XG4gIGhlaWdodDogNjBweDtcbiAgd2lkdGg6IDYwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuLmV4YW1wbGUtY2FyZCB7XG4gIG1heC13aWR0aDogNDAwcHg7XG59XG5cbi5leGFtcGxlLWhlYWRlci1pbWFnZSB7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG59Il19 */"
 
 /***/ }),
 
