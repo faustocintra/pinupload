@@ -63,7 +63,7 @@ module.exports = "<p>o-auth2-callback works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <mat-card class=\"example-card\">\n    <mat-card-header>\n      <div mat-card-avatar>\n        <img mat-card-image [src]=\"avatarImage\" [alt]=\"avatarAlt\">\n      </div>\n      <mat-card-title>{{ user.username }}</mat-card-title>\n      <mat-card-subtitle>{{ user.first_name }} {{ user.last_name }}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n      <p>{{ user.bio }}</p>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-raised-button color=\"primary\" (click)=\"fazerLogoff()\">Sair</button>\n    </mat-card-actions>\n  </mat-card>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <mat-card class=\"example-card\">\n    <mat-card-header>\n      <div mat-card-avatar>\n        <img mat-card-image [src]=\"avatarImage\" [alt]=\"avatarAlt\">\n      </div>\n      <mat-card-title>{{ user.username }}</mat-card-title>\n      <mat-card-subtitle>{{ user.first_name }} {{ user.last_name }}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n      <p>{{ user.bio }}</p>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-raised-button color=\"primary\" (click)=\"doLogoff()\">Sair</button>\n    </mat-card-actions>\n  </mat-card>\n</div>\n"
 
 /***/ }),
 
@@ -255,7 +255,7 @@ HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dvbmNpbi9BVUxBL3BpbnVwbG9hZC9zcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNHLGtCQUFBO0FDQ0giLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XG4gICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59IiwiZGl2IHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */"
+module.exports = "div {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vQzpcXHBpbnVwbG9hZC9zcmNcXGFwcFxcbG9naW5cXGxvZ2luLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNHLGtCQUFBO0FDQ0giLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XG4gICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59IiwiZGl2IHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -515,6 +515,11 @@ let PinterestService = class PinterestService {
             //this.router.navigate(['/login']);
         });
     }
+    logOff() {
+        this.accessCode = '';
+        this.accessToken = '';
+        this.router.navigate(['login']);
+    }
 };
 PinterestService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
@@ -537,7 +542,7 @@ PinterestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-card-image {\n  height: 60px;\n  width: 60px;\n  border-radius: 50%;\n}\n\n.example-card {\n  max-width: 400px;\n  margin: 0 auto;\n}\n\n.example-header-image {\n  background-size: cover;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dvbmNpbi9BVUxBL3BpbnVwbG9hZC9zcmMvYXBwL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ0NGOztBREVBO0VBQ0UsZ0JBQUE7RUFDQSxjQUFBO0FDQ0Y7O0FERUE7RUFDRSxzQkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1hdC1jYXJkLWltYWdlIHtcbiAgaGVpZ2h0OiA2MHB4O1xuICB3aWR0aDogNjBweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuXG4uZXhhbXBsZS1jYXJkIHtcbiAgbWF4LXdpZHRoOiA0MDBweDtcbiAgbWFyZ2luOiAwIGF1dG87XG59XG4gXG4uZXhhbXBsZS1oZWFkZXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufSIsIi5tYXQtY2FyZC1pbWFnZSB7XG4gIGhlaWdodDogNjBweDtcbiAgd2lkdGg6IDYwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuLmV4YW1wbGUtY2FyZCB7XG4gIG1heC13aWR0aDogNDAwcHg7XG4gIG1hcmdpbjogMCBhdXRvO1xufVxuXG4uZXhhbXBsZS1oZWFkZXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufSJdfQ== */"
+module.exports = ".mat-card-image {\n  height: 60px;\n  width: 60px;\n  border-radius: 50%;\n}\n\n.example-card {\n  max-width: 400px;\n  margin: 0 auto;\n}\n\n.example-header-image {\n  background-size: cover;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci9DOlxccGludXBsb2FkL3NyY1xcYXBwXFx1c2VyXFx1c2VyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC91c2VyL3VzZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0FDQ0Y7O0FERUE7RUFDRSxnQkFBQTtFQUNBLGNBQUE7QUNDRjs7QURFQTtFQUNFLHNCQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC91c2VyL3VzZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWF0LWNhcmQtaW1hZ2Uge1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5cbi5leGFtcGxlLWNhcmQge1xuICBtYXgtd2lkdGg6IDQwMHB4O1xuICBtYXJnaW46IDAgYXV0bztcbn1cbiBcbi5leGFtcGxlLWhlYWRlci1pbWFnZSB7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG59IiwiLm1hdC1jYXJkLWltYWdlIHtcbiAgaGVpZ2h0OiA2MHB4O1xuICB3aWR0aDogNjBweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuXG4uZXhhbXBsZS1jYXJkIHtcbiAgbWF4LXdpZHRoOiA0MDBweDtcbiAgbWFyZ2luOiAwIGF1dG87XG59XG5cbi5leGFtcGxlLWhlYWRlci1pbWFnZSB7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG59Il19 */"
 
 /***/ }),
 
@@ -572,7 +577,8 @@ let UserComponent = class UserComponent {
             this.avatarAlt = `Foto de ${this.user.first_name} ${this.user.last_name}`;
         }
     }
-    fazerLogoff() {
+    doLogoff() {
+        this.pinterest.logOff();
     }
 };
 UserComponent.ctorParameters = () => [
@@ -606,12 +612,12 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     authUrl: 'https://api.pinterest.com/oauth/',
-    // redirect_uri: https://<usuario-do-github>.github.io/pinupload/oauth2/callback
-    redirectUri: 'https://faustocintra.github.io/pinupload/oauth2/callback',
+    //redirect_Uri:'https://<usuario-do-github>.github.io/pinupload/oauth2/callback
+    redirectUri: 'https://thalescampos.github.io/pinupload/oauth2/callback',
     tokenUri: 'https://api.pinterest.com/v1/oauth/token',
     apiUri: 'https://api.pinterest.com/v1/',
-    clientId: '5048713194869147067',
-    clientSecret: '61229065b822b00bf68dda5c20381ba56c315eccd22e6067615a28e16c1c9c7b' // Cada um tem o seu
+    clientId: '5048713255460060617',
+    clientSecret: '5902326ec1dcf1157dd1320991cbac79e891bd28a429df2919078b74c747bccc'
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -661,7 +667,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/goncin/AULA/pinupload/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\pinupload\src\main.ts */"./src/main.ts");
 
 
 /***/ })
