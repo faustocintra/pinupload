@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { error } from '@angular/compiler/src/util';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +10,23 @@ export class PinterestService {
 
   constructor(
     private http: HttpClient,
+    private router: Router
   ) { }
 
   private env = environment;
 
-  private accessCode: string = '';
-  private accessToken: string = '';
-  private loggedInUser: any;
+  //accessCode e accessToken podem ser string ou null
+  private accessCode: string|null = null;
+  private accessToken: string|null = null;
+  private loggedInUser: any = null;
 
   initLogin() {
+    //só inicia o login caso não existam o accessCode e o accessToken
+    if(this.accessCode && this.accessToken){
+      this.router.navigate(['/']);//volta para a página inicial
+      return;
+    }
+
     const params = new HttpParams()
       .set('response_type', 'code')
       .set('client_id', this.env.clientId)
@@ -35,6 +43,10 @@ export class PinterestService {
   }
 
   getLoggedInUser() {
+    if(! this.accessToken){
+      this.logOff();//logoff forçado
+      return;
+    }
     const endPoint = 'me/';
     const params = new HttpParams()
       .set('access_token', this.accessToken)
@@ -44,6 +56,7 @@ export class PinterestService {
       user => {
         this.loggedInUser = user;
         console.log(user);
+        this.router.navigate(['/user']);
       },
       error => {
         console.error(error);
@@ -51,8 +64,8 @@ export class PinterestService {
     );
   }
 
-  private getUser(){
-    return this.loggedInUser();
+  public getUser(){
+    return this.loggedInUser;
   }
 
   private getAccessToken() {
@@ -75,4 +88,27 @@ export class PinterestService {
       }
     )
   }
+
+  logOff(){
+    this.accessCode = null;
+    this.accessToken = null;
+    this.loggedInUser = null;
+    this.router.navigate(['login']);
+  }
+
+  listBoards(){
+    //somente procede a chamada de API se existir um access token
+    if(! this.accessToken){
+      this.logOff();//logoff forçado
+      return;
+    }
+
+    const endPoint = 'me/boards';
+    const params = new HttpParams()
+    .set('access_token', this.accessToken)
+    .set('scope', 'read_public');
+
+    return this.http.get(this.env.apiUri + endPoint, {params: params}).toPromise();
+  }
+
 }
