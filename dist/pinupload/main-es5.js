@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>boards works!</p>\n"
+module.exports = "<p>Pastas</p>\n<mat-accordion *ngIf=\"boards.length > 0\">\n    <mat-expansion-panel *ngFor=\"let board of boards\">\n        <mat-expansion-panel-header>\n\n            <mat-panel-title>\n                {{ board.name }}\n            </mat-panel-title>\n\n        </mat-expansion-panel-header>\n\n        <p>Aqui aparecerão os pins desta pasta.</p>\n\n    </mat-expansion-panel>\n</mat-accordion>\n<p *ngIf=\"boards.length <= 0\"> Você não criou nenhuma pasta ainda.</p>"
 
 /***/ }),
 
@@ -285,19 +285,21 @@ var BoardsComponent = /** @class */ (function () {
     }
     BoardsComponent.prototype.ngOnInit = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var _a, error_1;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_b) {
-                switch (_b.label) {
+            var result, error_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
                     case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        _a = this;
+                        _a.trys.push([0, 2, , 3]);
                         return [4 /*yield*/, this.pinterest.listBoards()];
                     case 1:
-                        _a.boards = _b.sent();
+                        result = _a.sent();
+                        if (result) {
+                            this.boards = result['data'];
+                        }
                         console.log(this.boards);
                         return [3 /*break*/, 3];
                     case 2:
-                        error_1 = _b.sent();
+                        error_1 = _a.sent();
                         console.error(error_1);
                         return [3 /*break*/, 3];
                     case 3: return [2 /*return*/];
