@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>boards works!</p>\n"
+module.exports = "<h1>Pastas</h1>\n\n<mat-accordion *ngIf=\"boards.length > 0\">\n\n    <mat-expansion-panel *ngFor=\"let boards of boards\">\n      <mat-expansion-panel-header>\n          <mat-panel-title>\n            {{board.name}}\n          </mat-panel-title>\n\n      </mat-expansion-panel-header>\n  \n      <p>  Aqui aparecerão os pins desta pasta.</p>\n  \n    </mat-expansion-panel>\n    \n  \n  </mat-accordion>\n\n  <p *ngIf=\"boards.length <= 0\"> Voce não criou nenhuma pasta ainda.</p>\n"
 
 /***/ }),
 
@@ -299,22 +299,28 @@ var BoardsComponent = /** @class */ (function () {
     }
     BoardsComponent.prototype.ngOnInit = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var _a, error_1;
+            var result, _a, error_1;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        _a = this;
+                        _b.trys.push([0, 3, , 4]);
                         return [4 /*yield*/, this.pinterest.listBoards()];
                     case 1:
+                        result = _b.sent();
+                        if (result) {
+                            this.boards = result['data'];
+                        }
+                        _a = this;
+                        return [4 /*yield*/, this.pinterest.listBoards()];
+                    case 2:
                         _a.boards = _b.sent();
                         console.log(this.boards);
-                        return [3 /*break*/, 3];
-                    case 2:
+                        return [3 /*break*/, 4];
+                    case 3:
                         error_1 = _b.sent();
                         console.error(error_1);
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
                 }
             });
         });

@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>boards works!</p>\n"
+module.exports = "<h1>Pastas</h1>\n\n<mat-accordion *ngIf=\"boards.length > 0\">\n\n    <mat-expansion-panel *ngFor=\"let boards of boards\">\n      <mat-expansion-panel-header>\n          <mat-panel-title>\n            {{board.name}}\n          </mat-panel-title>\n\n      </mat-expansion-panel-header>\n  \n      <p>  Aqui aparecerão os pins desta pasta.</p>\n  \n    </mat-expansion-panel>\n    \n  \n  </mat-accordion>\n\n  <p *ngIf=\"boards.length <= 0\"> Voce não criou nenhuma pasta ainda.</p>\n"
 
 /***/ }),
 
@@ -296,6 +296,10 @@ let BoardsComponent = class BoardsComponent {
     ngOnInit() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             try {
+                let result = yield this.pinterest.listBoards();
+                if (result) {
+                    this.boards = result['data'];
+                }
                 this.boards = yield this.pinterest.listBoards();
                 console.log(this.boards);
             }
