@@ -13,6 +13,7 @@ import { OAuth2CallbackComponent } from './o-auth2-callback/o-auth2-callback.com
 import { UserComponent } from './user/user.component';
 import { HeaderComponent } from './ui/header/header.component';
 import { MainMenuComponent } from './ui/main-menu/main-menu.component';
+import { BoardsComponent } from './boards/boards.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MainMenuComponent } from './ui/main-menu/main-menu.component';
     OAuth2CallbackComponent,
     UserComponent,
     HeaderComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    BoardsComponent
   ],
   imports: [
     BrowserModule,
