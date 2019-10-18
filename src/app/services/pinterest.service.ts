@@ -15,12 +15,19 @@ export class PinterestService {
   ) { }
 
   private env = environment;
-  private accessCode: string = '';
-  private accessToken : string = '';
-  private loggedInUser: any;
+  /* accessCode e accessToken podem ser string ou null*/
+  private accessCode: string|null = null;
+  private accessToken : string|null = null;
+  private loggedInUser: any = null;
 
     initLogin() 
-  {
+  {  //só inicia o login caso não existam o access code e o access token
+
+    if(this.accessCode && this.accessToken){
+
+      this.router.navigate(['/']); // volta para pagina inicial
+      return;
+    }
     const params = new HttpParams()
     .set('response_type', 'code')
     .set('client_id', this.env.clientId)
@@ -41,6 +48,11 @@ export class PinterestService {
     this.getAccessToken();
   }  
     getLoggedInUser() {
+        //somenete 
+      if(!this.accessToken){
+        this.logOff(); // log off forçado
+        return;
+      }
 
       const endPoint = 'me/';
       const params = new HttpParams()
@@ -96,8 +108,9 @@ export class PinterestService {
 
   logOff(){
 
-    this.accessCode = '';
-    this.accessToken = '';
+    this.accessCode = null;
+    this.accessToken = null;
+    this.loggedInUser = null;
     this.router.navigate(['login']);
   }
 }
