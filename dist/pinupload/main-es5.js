@@ -85,7 +85,7 @@ module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z8\">\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-button [matMenuTriggerFor]=\"menu\" #state=\"matMenuTrigger\">\n    <mat-icon *ngIf=\"!state.menuOpen\">menu</mat-icon>\n    <mat-icon *ngIf=\"state.menuOpen\">close</mat-icon>\n</button>\n<mat-menu #menu=\"matMenu\">\n    <a mat-menu-item *ngIf=\"hasUser()\" [routerLink]=\"['/user']\">Perfil</a>\n    <a mat-menu-item *ngIf=\"!hasUser()\" [routerLink]=\"['/login']\">Entrar</a>\n    <button mat-menu-item *ngIf=\"hasUser()\" (click)=\"logOff()\">Sair</button>\n</mat-menu>"
+module.exports = "<button mat-button [matMenuTriggerFor]=\"menu\" #state=\"matMenuTrigger\">\n    <mat-icon *ngIf=\"!state.menuOpen\">menu</mat-icon>\n    <mat-icon *ngIf=\"state.menuOpen\">close</mat-icon>\n</button>\n<mat-menu #menu=\"matMenu\">\n    <a mat-menu-item *ngIf=\"hasUser()\" [routerLink]=\"['/user']\">Perfil</a>\n    <a mat-menu-item *ngIf=\"hasUser()\" [routerLink]=\"['/boards']\">Pastas</a>\n    <a mat-menu-item *ngIf=\"!hasUser()\" [routerLink]=\"['/login']\">Entrar</a>\n    <button mat-menu-item *ngIf=\"hasUser()\" (click)=\"logOff()\">Sair</button>\n</mat-menu>"
 
 /***/ }),
 
