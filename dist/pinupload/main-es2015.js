@@ -23,6 +23,17 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/boards/boards.component.html":
+/*!************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/boards/boards.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>boards works!</p>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/home/home.component.html":
 /*!********************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/home/home.component.html ***!
@@ -85,7 +96,7 @@ module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z8\">\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-button [matMenuTriggerFor]=\"menu\" #state=\"matMenuTrigger\">\n    <mat-icon *ngIf=\"! state.menuOpen\">menu</mat-icon>\n    <mat-icon *ngIf=\"state.menuOpen\">close</mat-icon>\n\n</button>\n<mat-menu #menu=\"matMenu\">\n    <a *ngIf=\"hasUser()\" mat-menu-item [routerLink]=\"['user']\">Perfil</a>\n    <a *ngIf=\" ! hasUser()\"mat-menu-item [routerLink]=\"['login']\">Entrar</a> \n  <button *ngIf=\"hasUser()\" mat-menu-item (click)=\"logOff()\">Sair</button>\n  \n</mat-menu>\n\n"
+module.exports = "<button mat-button [matMenuTriggerFor]=\"menu\" #state=\"matMenuTrigger\">\n    <mat-icon *ngIf=\"! state.menuOpen\">menu</mat-icon>\n    <mat-icon *ngIf=\"state.menuOpen\">close</mat-icon>\n\n</button>\n<mat-menu #menu=\"matMenu\">\n    <a *ngIf=\"hasUser()\" mat-menu-item [routerLink]=\"['user']\">Perfil</a>\n    <a *ngIf=\"hasUser()\" mat-menu-item [routerLink]=\"['/boards']\">Pastas</a>\n    <a *ngIf=\" ! hasUser()\"mat-menu-item [routerLink]=\"['login']\">Entrar</a> \n  <button *ngIf=\"hasUser()\" mat-menu-item (click)=\"logOff()\">Sair</button>\n  \n</mat-menu>\n\n"
 
 /***/ }),
 
@@ -116,6 +127,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./o-auth2-callback/o-auth2-callback.component */ "./src/app/o-auth2-callback/o-auth2-callback.component.ts");
 /* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
+/* harmony import */ var _boards_boards_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./boards/boards.component */ "./src/app/boards/boards.component.ts");
+
 
 
 
@@ -126,6 +139,7 @@ const routes = [
     { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'user', component: _user_user_component__WEBPACK_IMPORTED_MODULE_5__["UserComponent"] },
+    { path: 'boards', component: _boards_boards_component__WEBPACK_IMPORTED_MODULE_6__["BoardsComponent"] },
     { path: 'oauth2/callback', component: _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_4__["OAuth2CallbackComponent"] },
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -199,6 +213,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
 /* harmony import */ var _ui_header_header_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ui/header/header.component */ "./src/app/ui/header/header.component.ts");
 /* harmony import */ var _ui_main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./ui/main-menu/main-menu.component */ "./src/app/ui/main-menu/main-menu.component.ts");
+/* harmony import */ var _boards_boards_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./boards/boards.component */ "./src/app/boards/boards.component.ts");
+
 
 
 
@@ -226,7 +242,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_11__["OAuth2CallbackComponent"],
             _user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"],
             _ui_header_header_component__WEBPACK_IMPORTED_MODULE_13__["HeaderComponent"],
-            _ui_main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_14__["MainMenuComponent"]
+            _ui_main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_14__["MainMenuComponent"],
+            _boards_boards_component__WEBPACK_IMPORTED_MODULE_15__["BoardsComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -239,6 +256,65 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/boards/boards.component.scss":
+/*!**********************************************!*\
+  !*** ./src/app/boards/boards.component.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2JvYXJkcy9ib2FyZHMuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/boards/boards.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/boards/boards.component.ts ***!
+  \********************************************/
+/*! exports provided: BoardsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoardsComponent", function() { return BoardsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/pinterest.service */ "./src/app/services/pinterest.service.ts");
+
+
+
+let BoardsComponent = class BoardsComponent {
+    constructor(pinterest) {
+        this.pinterest = pinterest;
+        this.boards = [];
+    }
+    ngOnInit() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            try {
+                this.boards = yield this.pinterest.listBoards();
+                console.log(this.boards);
+            }
+            catch (error) {
+                console.error(error);
+            }
+        });
+    }
+};
+BoardsComponent.ctorParameters = () => [
+    { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__["PinterestService"] }
+];
+BoardsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-boards',
+        template: __webpack_require__(/*! raw-loader!./boards.component.html */ "./node_modules/raw-loader/index.js!./src/app/boards/boards.component.html"),
+        styles: [__webpack_require__(/*! ./boards.component.scss */ "./src/app/boards/boards.component.scss")]
+    })
+], BoardsComponent);
 
 
 
@@ -569,7 +645,7 @@ let PinterestService = class PinterestService {
         this.getAccessToken();
     }
     getLoggedInUser() {
-        //somenete 
+        //somente procede a  chamada de API se existir um access token
         if (!this.accessToken) {
             this.logOff(); // log off forçado
             return;
@@ -612,6 +688,17 @@ let PinterestService = class PinterestService {
         this.accessToken = null;
         this.loggedInUser = null;
         this.router.navigate(['login']);
+    }
+    listBoards() {
+        if (!this.accessToken) {
+            this.logOff(); // log off forçado
+            return;
+        }
+        const endPoint = 'me/boards';
+        const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('access_token', this.accessToken)
+            .set('scope', 'read_public');
+        return this.http.get(this.env.apiUri + endPoint, { params: params }).toPromise();
     }
 };
 PinterestService.ctorParameters = () => [
