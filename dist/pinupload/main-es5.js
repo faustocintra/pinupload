@@ -23,6 +23,17 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/boards/boards.component.html":
+/*!************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/boards/boards.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>boards works!</p>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/home/home.component.html":
 /*!********************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/home/home.component.html ***!
@@ -56,6 +67,28 @@ module.exports = "<p>o-auth2-callback works!</p>\n"
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/ui/header/header.component.html":
+/*!***************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/ui/header/header.component.html ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z8\">\n    <mat-toolbar-row>\n        <app-main-menu></app-main-menu>\n        <span>{{ appName }}</span>\n    </mat-toolbar-row>\n</mat-toolbar>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/ui/main-menu/main-menu.component.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/ui/main-menu/main-menu.component.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<button mat-button [matMenuTriggerFor]=\"menu\" #state=\"matMenuTrigger\">\n    <mat-icon *ngIf=\"!state.menuOpen\">menu</mat-icon>\n    <mat-icon *ngIf=\"state.menuOpen\">close</mat-icon>\n</button>\n<mat-menu #menu=\"matMenu\">\n    <a mat-menu-item *ngIf=\"hasUser()\" [routerLink]=\"['/user']\">Perfil</a>\n    <a mat-menu-item *ngIf=\"!hasUser()\" [routerLink]=\"['/login']\">Entrar</a>\n    <button mat-menu-item *ngIf=\"hasUser()\" (click)=\"logOff()\">Sair</button>\n</mat-menu>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/user/user.component.html":
 /*!********************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/user/user.component.html ***!
@@ -63,7 +96,7 @@ module.exports = "<p>o-auth2-callback works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <mat-card class=\"example-card\">\n        <mat-card-header>\n            <div mat-card-avatar>\n                <img mat-card-image [src]=\"avatarImage\" [alt]=\"avatarAlt\">\n            </div>\n            <mat-card-title>{{ user.username }}</mat-card-title>\n            <mat-card-subtitle>{{ user.first_name }} {{ user.last_name }}</mat-card-subtitle>\n        </mat-card-header>\n\n        <mat-card-content>\n            <p> {{ user.bio }}</p>\n        </mat-card-content>\n\n        <mat-card-actions>\n            <button mat-raised-button color=\"primary\" (click)=\"fazerLogoff()\">Sair</button>\n        </mat-card-actions>\n    </mat-card>\n</div>"
+module.exports = "<div class=\"container\">\n    <mat-card class=\"example-card\">\n        <mat-card-header>\n            <div mat-card-avatar>\n                <img mat-card-image [src]=\"avatarImage\" [alt]=\"avatarAlt\">\n            </div>\n            <mat-card-title>{{ user.username }}</mat-card-title>\n            <mat-card-subtitle>{{ user.first_name }} {{ user.last_name }}</mat-card-subtitle>\n        </mat-card-header>\n\n        <mat-card-content>\n            <p> {{ user.bio }}</p>\n        </mat-card-content>\n\n        <mat-card-actions>\n            <button mat-raised-button color=\"primary\" (click)=\"doLogoff()\">Sair</button>\n        </mat-card-actions>\n    </mat-card>\n</div>"
 
 /***/ }),
 
@@ -83,6 +116,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./o-auth2-callback/o-auth2-callback.component */ "./src/app/o-auth2-callback/o-auth2-callback.component.ts");
 /* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
+/* harmony import */ var _boards_boards_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./boards/boards.component */ "./src/app/boards/boards.component.ts");
+
 
 
 
@@ -93,6 +128,7 @@ var routes = [
     { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'user', component: _user_user_component__WEBPACK_IMPORTED_MODULE_5__["UserComponent"] },
+    { path: 'boards', component: _boards_boards_component__WEBPACK_IMPORTED_MODULE_6__["BoardsComponent"] },
     { path: 'oauth2/callback', component: _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_4__["OAuth2CallbackComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -127,12 +163,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'pinupload';
+        this.title = 'Pinupload';
     }
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
-            template: "\n    <!--The content below is only a placeholder and can be replaced.-->\n    <div style=\"text-align:center\">\n      <h1>\n        Pinupload\n      </h1>\n    </div>\n    <router-outlet></router-outlet>\n  "
+            template: "\n    <app-header [appName]=\"title\"></app-header>\n    <router-outlet></router-outlet>\n  "
         })
     ], AppComponent);
     return AppComponent;
@@ -164,6 +200,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./o-auth2-callback/o-auth2-callback.component */ "./src/app/o-auth2-callback/o-auth2-callback.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
+/* harmony import */ var _ui_header_header_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ui/header/header.component */ "./src/app/ui/header/header.component.ts");
+/* harmony import */ var _ui_main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ui/main-menu/main-menu.component */ "./src/app/ui/main-menu/main-menu.component.ts");
+/* harmony import */ var _boards_boards_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./boards/boards.component */ "./src/app/boards/boards.component.ts");
+
+
+
 
 
 
@@ -186,7 +228,10 @@ var AppModule = /** @class */ (function () {
                 _login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"],
                 _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_9__["OAuth2CallbackComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"],
-                _user_user_component__WEBPACK_IMPORTED_MODULE_11__["UserComponent"]
+                _user_user_component__WEBPACK_IMPORTED_MODULE_11__["UserComponent"],
+                _ui_header_header_component__WEBPACK_IMPORTED_MODULE_12__["HeaderComponent"],
+                _ui_main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_13__["MainMenuComponent"],
+                _boards_boards_component__WEBPACK_IMPORTED_MODULE_14__["BoardsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -200,6 +245,77 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/boards/boards.component.scss":
+/*!**********************************************!*\
+  !*** ./src/app/boards/boards.component.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2JvYXJkcy9ib2FyZHMuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/boards/boards.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/boards/boards.component.ts ***!
+  \********************************************/
+/*! exports provided: BoardsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoardsComponent", function() { return BoardsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/pinterest.service */ "./src/app/services/pinterest.service.ts");
+
+
+
+var BoardsComponent = /** @class */ (function () {
+    function BoardsComponent(pinterest) {
+        this.pinterest = pinterest;
+        this.boards = [];
+    }
+    BoardsComponent.prototype.ngOnInit = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _a, error_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _b.trys.push([0, 2, , 3]);
+                        _a = this;
+                        return [4 /*yield*/, this.pinterest.listBoards()];
+                    case 1:
+                        _a.boards = _b.sent();
+                        console.log(this.boards);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _b.sent();
+                        console.error(error_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    BoardsComponent.ctorParameters = function () { return [
+        { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__["PinterestService"] }
+    ]; };
+    BoardsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-boards',
+            template: __webpack_require__(/*! raw-loader!./boards.component.html */ "./node_modules/raw-loader/index.js!./src/app/boards/boards.component.html"),
+            styles: [__webpack_require__(/*! ./boards.component.scss */ "./src/app/boards/boards.component.scss")]
+        })
+    ], BoardsComponent);
+    return BoardsComponent;
 }());
 
 
@@ -473,10 +589,17 @@ var PinterestService = /** @class */ (function () {
         this.http = http;
         this.router = router;
         this.env = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"];
-        this.accessCode = '';
-        this.accessToken = '';
+        //accessCode e accessToken podem ser string ou null
+        this.accessCode = null;
+        this.accessToken = null;
+        this.loggedInUser = null;
     }
     PinterestService.prototype.initLogin = function () {
+        //só inicia o login caso não existam o accessCode e o accessToken
+        if (this.accessCode && this.accessToken) {
+            this.router.navigate(['/']); //volta para a página inicial
+            return;
+        }
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
             .set('response_type', 'code')
             .set('client_id', this.env.clientId)
@@ -491,6 +614,10 @@ var PinterestService = /** @class */ (function () {
     };
     PinterestService.prototype.getLoggedInUser = function () {
         var _this = this;
+        if (!this.accessToken) {
+            this.logOff(); //logoff forçado
+            return;
+        }
         var endPoint = 'me/';
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
             .set('access_token', this.accessToken)
@@ -523,6 +650,24 @@ var PinterestService = /** @class */ (function () {
             console.error(error);
         });
     };
+    PinterestService.prototype.logOff = function () {
+        this.accessCode = null;
+        this.accessToken = null;
+        this.loggedInUser = null;
+        this.router.navigate(['login']);
+    };
+    PinterestService.prototype.listBoards = function () {
+        //somente procede a chamada de API se existir um access token
+        if (!this.accessToken) {
+            this.logOff(); //logoff forçado
+            return;
+        }
+        var endPoint = 'me/boards';
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('access_token', this.accessToken)
+            .set('scope', 'read_public');
+        return this.http.get(this.env.apiUri + endPoint, { params: params }).toPromise();
+    };
     PinterestService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
@@ -539,6 +684,109 @@ var PinterestService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ui/header/header.component.scss":
+/*!*************************************************!*\
+  !*** ./src/app/ui/header/header.component.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VpL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ui/header/header.component.ts":
+/*!***********************************************!*\
+  !*** ./src/app/ui/header/header.component.ts ***!
+  \***********************************************/
+/*! exports provided: HeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var HeaderComponent = /** @class */ (function () {
+    function HeaderComponent() {
+    }
+    HeaderComponent.prototype.ngOnInit = function () {
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+    ], HeaderComponent.prototype, "appName", void 0);
+    HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-header',
+            template: __webpack_require__(/*! raw-loader!./header.component.html */ "./node_modules/raw-loader/index.js!./src/app/ui/header/header.component.html"),
+            styles: [__webpack_require__(/*! ./header.component.scss */ "./src/app/ui/header/header.component.scss")]
+        })
+    ], HeaderComponent);
+    return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/main-menu/main-menu.component.scss":
+/*!*******************************************************!*\
+  !*** ./src/app/ui/main-menu/main-menu.component.scss ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VpL21haW4tbWVudS9tYWluLW1lbnUuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ui/main-menu/main-menu.component.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/ui/main-menu/main-menu.component.ts ***!
+  \*****************************************************/
+/*! exports provided: MainMenuComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainMenuComponent", function() { return MainMenuComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/pinterest.service */ "./src/app/services/pinterest.service.ts");
+
+
+
+var MainMenuComponent = /** @class */ (function () {
+    function MainMenuComponent(pinterest) {
+        this.pinterest = pinterest;
+    }
+    MainMenuComponent.prototype.ngOnInit = function () {
+    };
+    MainMenuComponent.prototype.logOff = function () {
+        this.pinterest.logOff();
+    };
+    MainMenuComponent.prototype.hasUser = function () {
+        return this.pinterest.getUser();
+    };
+    MainMenuComponent.ctorParameters = function () { return [
+        { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__["PinterestService"] }
+    ]; };
+    MainMenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-main-menu',
+            template: __webpack_require__(/*! raw-loader!./main-menu.component.html */ "./node_modules/raw-loader/index.js!./src/app/ui/main-menu/main-menu.component.html"),
+            styles: [__webpack_require__(/*! ./main-menu.component.scss */ "./src/app/ui/main-menu/main-menu.component.scss")]
+        })
+    ], MainMenuComponent);
+    return MainMenuComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/user/user.component.scss":
 /*!******************************************!*\
   !*** ./src/app/user/user.component.scss ***!
@@ -546,7 +794,7 @@ var PinterestService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\n  padding: 0 auto;\n}\n\n.mat-card-image {\n  height: 60px;\n  width: 60px;\n  border-radius: 50%;\n}\n\n.example-card {\n  max-width: 400px;\n}\n\n.example-header-image {\n  background-size: cover;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci9DOlxcVXNlcnNcXGZiYXJpXFxEZXNrdG9wXFxwaW51cGxvYWQvc3JjXFxhcHBcXHVzZXJcXHVzZXIuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGVBQUE7QUNDRjs7QURFQTtFQUNFLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUNDRjs7QURFQTtFQUNFLGdCQUFBO0FDQ0Y7O0FERUE7RUFDRSxzQkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lcntcclxuICBwYWRkaW5nOiAwIGF1dG87XHJcbn1cclxuXHJcbi5tYXQtY2FyZC1pbWFnZXtcclxuICBoZWlnaHQ6IDYwcHg7XHJcbiAgd2lkdGg6IDYwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlOyAvL291IDMwcHhcclxufVxyXG5cclxuLmV4YW1wbGUtY2FyZCB7XHJcbiAgbWF4LXdpZHRoOiA0MDBweDtcclxufVxyXG5cclxuLmV4YW1wbGUtaGVhZGVyLWltYWdlIHtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG59XHJcblxyXG4iLCIuY29udGFpbmVyIHtcbiAgcGFkZGluZzogMCBhdXRvO1xufVxuXG4ubWF0LWNhcmQtaW1hZ2Uge1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5cbi5leGFtcGxlLWNhcmQge1xuICBtYXgtd2lkdGg6IDQwMHB4O1xufVxuXG4uZXhhbXBsZS1oZWFkZXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufSJdfQ== */"
+module.exports = ".mat-card-image {\n  height: 60px;\n  width: 60px;\n  border-radius: 50%;\n}\n\n.example-card {\n  max-width: 400px;\n  margin: 0 auto;\n}\n\n.example-header-image {\n  background-size: cover;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci9DOlxcVXNlcnNcXGZiYXJpXFxEZXNrdG9wXFxwaW51cGxvYWQvc3JjXFxhcHBcXHVzZXJcXHVzZXIuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUNDRjs7QURFQTtFQUNFLGdCQUFBO0VBQ0EsY0FBQTtBQ0NGOztBREVBO0VBQ0Usc0JBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYXQtY2FyZC1pbWFnZXtcclxuICBoZWlnaHQ6IDYwcHg7XHJcbiAgd2lkdGg6IDYwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlOyAvL291IDMwcHhcclxufVxyXG5cclxuLmV4YW1wbGUtY2FyZCB7XHJcbiAgbWF4LXdpZHRoOiA0MDBweDtcclxuICBtYXJnaW46IDAgYXV0bztcclxufVxyXG5cclxuLmV4YW1wbGUtaGVhZGVyLWltYWdlIHtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG59XHJcblxyXG4iLCIubWF0LWNhcmQtaW1hZ2Uge1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5cbi5leGFtcGxlLWNhcmQge1xuICBtYXgtd2lkdGg6IDQwMHB4O1xuICBtYXJnaW46IDAgYXV0bztcbn1cblxuLmV4YW1wbGUtaGVhZGVyLWltYWdlIHtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3Zlcjtcbn0iXX0= */"
 
 /***/ }),
 
@@ -580,7 +828,8 @@ var UserComponent = /** @class */ (function () {
             this.avatarAlt = "Foto de " + this.user.first_name + " " + this.user.last_name;
         }
     };
-    UserComponent.prototype.fazerLogoff = function () {
+    UserComponent.prototype.doLogoff = function () {
+        this.pinterest.logOff();
     };
     UserComponent.ctorParameters = function () { return [
         { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__["PinterestService"] }
