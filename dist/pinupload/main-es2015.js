@@ -701,8 +701,22 @@ let PinterestService = class PinterestService {
         const endPoint = 'me/boards';
         const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
             .set('access_token', this.accessToken)
+            .set('fields', 'id,url,note,image')
             .set('scope', 'read_public');
         return this.http.get(this.env.apiUri + endPoint, { params: params }).toPromise();
+    }
+    listBoardPins(boardName) {
+        // Somente procede à chamada de API se existir um access token
+        if (!this.accessToken) {
+            this.logOff(); // Log off forçado;
+            return;
+        }
+        const endPoint = `boards/${this.loggedInUser.username}/${boardName}/pins`;
+        const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('access_token', this.accessToken)
+            .set('scope', 'read_public');
+        let fullUri = this.env.apiUri + endPoint + '?' + params.toString();
+        return this.http.jsonp(fullUri, 'callback').toPromise();
     }
 };
 PinterestService.ctorParameters = () => [
