@@ -23,6 +23,17 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/boards/boards.component.html":
+/*!************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/boards/boards.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Pastas</h1>\n\n<mat-accordion *ngIf=\"boards.length > 0\">\n   <mat-expansion-panel *ngFor=\"let board of boards\" (opened)=\"fetchPins(board.name)\">\n      <mat-expansion-panel-header>\n\n         <mat-panel-title>\n            {{ board.name }}\n         </mat-panel-title>\n\n      </mat-expansion-panel-header>\n\n      <p>Aqui aparecerão os pins desta pasta.</p>\n\n   </mat-expansion-panel>\n</mat-accordion>\n\n<p *ngIf=\"boards.length <= 0\">Você não criou nenhuma pasta ainda.</p>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/home/home.component.html":
 /*!********************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/home/home.component.html ***!
@@ -56,6 +67,28 @@ module.exports = "<p>o-auth2-callback works!</p>\n"
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/ui/header/header.component.html":
+/*!***************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/ui/header/header.component.html ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z8\">\n   <mat-toolbar-row>\n      <app-main-menu></app-main-menu>\n      <span>{{ appName }}</span>\n   </mat-toolbar-row>\n</mat-toolbar>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/ui/main-menu/main-menu.component.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/ui/main-menu/main-menu.component.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<button mat-button [matMenuTriggerFor]=\"menu\" #state=\"matMenuTrigger\">\n   <mat-icon *ngIf=\"! state.menuOpen\">menu</mat-icon>\n   <mat-icon *ngIf=\"state.menuOpen\">close</mat-icon>\n</button>\n<mat-menu #menu=\"matMenu\">\n   <a *ngIf=\"hasUser()\" mat-menu-item [routerLink]=\"['/user']\">Perfil</a>\n   <a *ngIf=\"hasUser()\" mat-menu-item [routerLink]=\"['/boards']\">Pastas</a>\n   <a *ngIf=\"! hasUser()\" mat-menu-item [routerLink]=\"['/login']\">Entrar</a>\n   <button *ngIf=\"hasUser()\" mat-menu-item (click)=\"logOff()\">Sair</button>   \n</mat-menu>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/user/user.component.html":
 /*!********************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/user/user.component.html ***!
@@ -83,6 +116,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./o-auth2-callback/o-auth2-callback.component */ "./src/app/o-auth2-callback/o-auth2-callback.component.ts");
 /* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
+/* harmony import */ var _boards_boards_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./boards/boards.component */ "./src/app/boards/boards.component.ts");
+
 
 
 
@@ -93,6 +128,7 @@ var routes = [
     { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'user', component: _user_user_component__WEBPACK_IMPORTED_MODULE_5__["UserComponent"] },
+    { path: 'boards', component: _boards_boards_component__WEBPACK_IMPORTED_MODULE_6__["BoardsComponent"] },
     { path: 'oauth2/callback', component: _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_4__["OAuth2CallbackComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -127,12 +163,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'pinupload';
+        this.title = 'Pinupload';
     }
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
-            template: "\n    <div style=\"text-align:center\">\n      <h1>\n        Pinupload\n      </h1>\n    </div>\n    <router-outlet></router-outlet>\n  "
+            template: "\n    <app-header [appName]=\"title\"></app-header>\n    <router-outlet></router-outlet>\n  "
         })
     ], AppComponent);
     return AppComponent;
@@ -164,6 +200,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./o-auth2-callback/o-auth2-callback.component */ "./src/app/o-auth2-callback/o-auth2-callback.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
+/* harmony import */ var _ui_header_header_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ui/header/header.component */ "./src/app/ui/header/header.component.ts");
+/* harmony import */ var _ui_main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ui/main-menu/main-menu.component */ "./src/app/ui/main-menu/main-menu.component.ts");
+/* harmony import */ var _boards_boards_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./boards/boards.component */ "./src/app/boards/boards.component.ts");
+
+
+
+
 
 
 
@@ -186,20 +229,118 @@ var AppModule = /** @class */ (function () {
                 _login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"],
                 _o_auth2_callback_o_auth2_callback_component__WEBPACK_IMPORTED_MODULE_9__["OAuth2CallbackComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"],
-                _user_user_component__WEBPACK_IMPORTED_MODULE_11__["UserComponent"]
+                _user_user_component__WEBPACK_IMPORTED_MODULE_11__["UserComponent"],
+                _ui_header_header_component__WEBPACK_IMPORTED_MODULE_12__["HeaderComponent"],
+                _ui_main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_13__["MainMenuComponent"],
+                _boards_boards_component__WEBPACK_IMPORTED_MODULE_14__["BoardsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientJsonpModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
-                _material_material_module__WEBPACK_IMPORTED_MODULE_7__["MaterialModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
+                _material_material_module__WEBPACK_IMPORTED_MODULE_7__["MaterialModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/boards/boards.component.scss":
+/*!**********************************************!*\
+  !*** ./src/app/boards/boards.component.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2JvYXJkcy9ib2FyZHMuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/boards/boards.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/boards/boards.component.ts ***!
+  \********************************************/
+/*! exports provided: BoardsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoardsComponent", function() { return BoardsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/pinterest.service */ "./src/app/services/pinterest.service.ts");
+
+
+
+var BoardsComponent = /** @class */ (function () {
+    function BoardsComponent(pinterest) {
+        this.pinterest = pinterest;
+        this.boards = [];
+        this.boardPins = [];
+    }
+    BoardsComponent.prototype.ngOnInit = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var result, error_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.pinterest.listBoards()];
+                    case 1:
+                        result = _a.sent();
+                        this.boards = result['data'];
+                        console.log(this.boards);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        console.error(error_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    BoardsComponent.prototype.fetchPins = function (boardName) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var result, error_2;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.pinterest.listBoardPins(boardName)];
+                    case 1:
+                        result = _a.sent();
+                        this.boardPins = result['data'];
+                        console.log(result);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_2 = _a.sent();
+                        console.log(error_2);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    BoardsComponent.ctorParameters = function () { return [
+        { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__["PinterestService"] }
+    ]; };
+    BoardsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-boards',
+            template: __webpack_require__(/*! raw-loader!./boards.component.html */ "./node_modules/raw-loader/index.js!./src/app/boards/boards.component.html"),
+            styles: [__webpack_require__(/*! ./boards.component.scss */ "./src/app/boards/boards.component.scss")]
+        })
+    ], BoardsComponent);
+    return BoardsComponent;
 }());
 
 
@@ -257,7 +398,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vQzpcXHBpbnVwbG9hZC9zcmNcXGFwcFxcbG9naW5cXGxvZ2luLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNHLGtCQUFBO0FDQ0giLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XG4gICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59IiwiZGl2IHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */"
+module.exports = "div {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dvbmNpbi9BVUxBL3BpbnVwbG9hZC9zcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNHLGtCQUFBO0FDQ0giLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XG4gICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59IiwiZGl2IHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -473,10 +614,24 @@ var PinterestService = /** @class */ (function () {
         this.http = http;
         this.router = router;
         this.env = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"];
-        this.accessCode = '';
-        this.accessToken = '';
+        /* accessCode e accessToken podem ser string ou null */
+        this.accessCode = null;
+        this.accessToken = null;
+        this.loggedInUser = null;
+        this.reqHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]()
+            .set('Content-Type', 'application/json')
+            .set('Access-Control-Allow-Origin', 'https://' + window.location.hostname)
+            .set('Access-Control-Allow-Credentials', 'true')
+            .set('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, PUT, OPTIONS')
+            //.set('Access-Control-Request-Headers', 'Authorization, X-PING')
+            .set('Access-Control-Allow-Headers', 'Content-Type, Authorization, Access-Control-Allow-Headers, X-Requested-With, X-PING');
     }
     PinterestService.prototype.initLogin = function () {
+        // Só inicia o login caso não existam o access code e o acess token
+        if (this.accessCode && this.accessToken) {
+            this.router.navigate(['/']); // Volta para a página inicial
+            return;
+        }
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
             .set('response_type', 'code')
             .set('client_id', this.env.clientId)
@@ -491,6 +646,11 @@ var PinterestService = /** @class */ (function () {
     };
     PinterestService.prototype.getLoggedInUser = function () {
         var _this = this;
+        // Somente procede à chamada de API se existir um access token
+        if (!this.accessToken) {
+            this.logOff(); // Log off forçado;
+            return;
+        }
         var endPoint = 'me/';
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
             .set('access_token', this.accessToken)
@@ -513,7 +673,7 @@ var PinterestService = /** @class */ (function () {
             .set('client_id', this.env.clientId)
             .set('client_secret', this.env.clientSecret)
             .set('code', this.accessCode);
-        this.http.post(this.env.tokenUri, null, { params: params }).subscribe(function (res) {
+        this.http.jsonp(this.env.tokenUri + '?' + params.toString(), 'callback').subscribe(function (res) {
             console.log('--TOKEN--');
             _this.accessToken = res['access_token'];
             console.log(_this.accessToken);
@@ -526,9 +686,36 @@ var PinterestService = /** @class */ (function () {
         });
     };
     PinterestService.prototype.logOff = function () {
-        this.accessCode = '';
-        this.accessToken = '';
+        this.accessCode = null;
+        this.accessToken = null;
+        this.loggedInUser = null;
         this.router.navigate(['login']);
+    };
+    PinterestService.prototype.listBoards = function () {
+        // Somente procede à chamada de API se existir um access token
+        if (!this.accessToken) {
+            this.logOff(); // Log off forçado;
+            return;
+        }
+        var endPoint = 'me/boards';
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('access_token', this.accessToken)
+            .set('scope', 'read_public');
+        var fullUri = this.env.apiUri + endPoint + '?' + params.toString();
+        return this.http.jsonp(fullUri, 'callback').toPromise();
+    };
+    PinterestService.prototype.listBoardPins = function (boardName) {
+        // Somente procede à chamada de API se existir um access token
+        if (!this.accessToken) {
+            this.logOff(); // Log off forçado;
+            return;
+        }
+        var endPoint = "boards/" + this.loggedInUser.username + "/" + boardName + "/pins";
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('access_token', this.accessToken)
+            .set('scope', 'read_public');
+        var fullUri = this.env.apiUri + endPoint + '?' + params.toString();
+        return this.http.jsonp(fullUri, 'callback').toPromise();
     };
     PinterestService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
@@ -546,6 +733,109 @@ var PinterestService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ui/header/header.component.scss":
+/*!*************************************************!*\
+  !*** ./src/app/ui/header/header.component.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VpL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ui/header/header.component.ts":
+/*!***********************************************!*\
+  !*** ./src/app/ui/header/header.component.ts ***!
+  \***********************************************/
+/*! exports provided: HeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var HeaderComponent = /** @class */ (function () {
+    function HeaderComponent() {
+    }
+    HeaderComponent.prototype.ngOnInit = function () {
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+    ], HeaderComponent.prototype, "appName", void 0);
+    HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-header',
+            template: __webpack_require__(/*! raw-loader!./header.component.html */ "./node_modules/raw-loader/index.js!./src/app/ui/header/header.component.html"),
+            styles: [__webpack_require__(/*! ./header.component.scss */ "./src/app/ui/header/header.component.scss")]
+        })
+    ], HeaderComponent);
+    return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/main-menu/main-menu.component.scss":
+/*!*******************************************************!*\
+  !*** ./src/app/ui/main-menu/main-menu.component.scss ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VpL21haW4tbWVudS9tYWluLW1lbnUuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ui/main-menu/main-menu.component.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/ui/main-menu/main-menu.component.ts ***!
+  \*****************************************************/
+/*! exports provided: MainMenuComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainMenuComponent", function() { return MainMenuComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/pinterest.service */ "./src/app/services/pinterest.service.ts");
+
+
+
+var MainMenuComponent = /** @class */ (function () {
+    function MainMenuComponent(pinterest) {
+        this.pinterest = pinterest;
+    }
+    MainMenuComponent.prototype.ngOnInit = function () {
+    };
+    MainMenuComponent.prototype.logOff = function () {
+        this.pinterest.logOff();
+    };
+    MainMenuComponent.prototype.hasUser = function () {
+        return this.pinterest.getUser();
+    };
+    MainMenuComponent.ctorParameters = function () { return [
+        { type: _services_pinterest_service__WEBPACK_IMPORTED_MODULE_2__["PinterestService"] }
+    ]; };
+    MainMenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-main-menu',
+            template: __webpack_require__(/*! raw-loader!./main-menu.component.html */ "./node_modules/raw-loader/index.js!./src/app/ui/main-menu/main-menu.component.html"),
+            styles: [__webpack_require__(/*! ./main-menu.component.scss */ "./src/app/ui/main-menu/main-menu.component.scss")]
+        })
+    ], MainMenuComponent);
+    return MainMenuComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/user/user.component.scss":
 /*!******************************************!*\
   !*** ./src/app/user/user.component.scss ***!
@@ -553,7 +843,7 @@ var PinterestService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-card-image {\n  height: 60px;\n  width: 60px;\n  border-radius: 50%;\n}\n\n.example-card {\n  max-width: 400px;\n  margin: 0 auto;\n}\n\n.example-header-image {\n  background-size: cover;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci9DOlxccGludXBsb2FkL3NyY1xcYXBwXFx1c2VyXFx1c2VyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC91c2VyL3VzZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0FDQ0Y7O0FERUE7RUFDRSxnQkFBQTtFQUNBLGNBQUE7QUNDRjs7QURFQTtFQUNFLHNCQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC91c2VyL3VzZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWF0LWNhcmQtaW1hZ2Uge1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5cbi5leGFtcGxlLWNhcmQge1xuICBtYXgtd2lkdGg6IDQwMHB4O1xuICBtYXJnaW46IDAgYXV0bztcbn1cbiBcbi5leGFtcGxlLWhlYWRlci1pbWFnZSB7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG59IiwiLm1hdC1jYXJkLWltYWdlIHtcbiAgaGVpZ2h0OiA2MHB4O1xuICB3aWR0aDogNjBweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuXG4uZXhhbXBsZS1jYXJkIHtcbiAgbWF4LXdpZHRoOiA0MDBweDtcbiAgbWFyZ2luOiAwIGF1dG87XG59XG5cbi5leGFtcGxlLWhlYWRlci1pbWFnZSB7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG59Il19 */"
+module.exports = ".mat-card-image {\n  height: 60px;\n  width: 60px;\n  border-radius: 50%;\n}\n\n.example-card {\n  max-width: 400px;\n  margin: 0 auto;\n}\n\n.example-header-image {\n  background-size: cover;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dvbmNpbi9BVUxBL3BpbnVwbG9hZC9zcmMvYXBwL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ0NGOztBREVBO0VBQ0UsZ0JBQUE7RUFDQSxjQUFBO0FDQ0Y7O0FERUE7RUFDRSxzQkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1hdC1jYXJkLWltYWdlIHtcbiAgaGVpZ2h0OiA2MHB4O1xuICB3aWR0aDogNjBweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuXG4uZXhhbXBsZS1jYXJkIHtcbiAgbWF4LXdpZHRoOiA0MDBweDtcbiAgbWFyZ2luOiAwIGF1dG87XG59XG4gXG4uZXhhbXBsZS1oZWFkZXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufSIsIi5tYXQtY2FyZC1pbWFnZSB7XG4gIGhlaWdodDogNjBweDtcbiAgd2lkdGg6IDYwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuLmV4YW1wbGUtY2FyZCB7XG4gIG1heC13aWR0aDogNDAwcHg7XG4gIG1hcmdpbjogMCBhdXRvO1xufVxuXG4uZXhhbXBsZS1oZWFkZXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -624,12 +914,14 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     authUrl: 'https://api.pinterest.com/oauth/',
-    //redirect_Uri:'https://<usuario-do-github>.github.io/pinupload/oauth2/callback
-    redirectUri: 'https://thalescampos.github.io/pinupload/oauth2/callback',
+    // redirect_uri: https://<usuario-do-github>.github.io/pinupload/oauth2/callback
+    redirectUri: 'https://faustocintra.github.io/pinupload/oauth2/callback',
     tokenUri: 'https://api.pinterest.com/v1/oauth/token',
     apiUri: 'https://api.pinterest.com/v1/',
-    clientId: '5048713255460060617',
-    clientSecret: '5902326ec1dcf1157dd1320991cbac79e891bd28a429df2919078b74c747bccc'
+    //clientId: '5048713194869147067',
+    //clientSecret: '61229065b822b00bf68dda5c20381ba56c315eccd22e6067615a28e16c1c9c7b'
+    clientId: '5061890736316790442',
+    clientSecret: '2621b5b89b39061c1489788af31e8d239321e5b7d08b3cc772a681573a185a9f' // Cada um tem o seu
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -679,7 +971,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\pinupload\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/goncin/AULA/pinupload/src/main.ts */"./src/main.ts");
 
 
 /***/ })
