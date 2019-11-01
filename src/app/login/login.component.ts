@@ -17,9 +17,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     
   }
+
   doLogin(){
 
-    this.pinterest.initLogin();
+   
+     this.pinterest.initLogin();
   }
 
 }

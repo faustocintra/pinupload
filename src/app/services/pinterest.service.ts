@@ -61,9 +61,9 @@ export class PinterestService {
 
       this.http.get(this.env.apiUri + endPoint, {params: params}).subscribe (
         user=> {
-          this.loggedInUser = user;
+          this.loggedInUser = user['data'];
           console.log(user);
-          this.router.navigate(['/user']);
+          this.router.navigate(['user']);
 
         },
 
@@ -123,10 +123,29 @@ export class PinterestService {
 
     const endPoint = 'me/boards';
     const params = new HttpParams()
-    .set('access_token', this.accessToken)
-    .set('scope', 'read_public');
+      .set('access_token', this.accessToken)
+      .set('fields', 'id,url,note,image')
+      .set('scope', 'read_public');
 
-   return  this.http.get(this.env.apiUri + endPoint, {params: params}).toPromise();
+      let fullUri = this.env.apiUri + endPoint + '?' + params.toString();
+      return this.http.jsonp(fullUri, 'callback').toPromise();
+  }
+
+
+  listBoardPins(boardName: string) {
+    // Somente procede à chamada de API se existir um access token
+    if(! this.accessToken) {
+      this.logOff(); // Log off forçado;
+      return;
+    }
+
+    const endPoint = `boards/${this.loggedInUser.username}/${boardName}/pins`;
+    const params = new HttpParams()
+      .set('access_token', this.accessToken)
+      .set('scope', 'read_public');
+
+    let fullUri = this.env.apiUri + endPoint + '?' + params.toString();
+    return this.http.jsonp(fullUri, 'callback').toPromise();
   }
 }
 
