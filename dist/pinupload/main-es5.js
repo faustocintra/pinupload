@@ -688,9 +688,9 @@ var PinterestService = /** @class */ (function () {
             .set('access_token', this.accessToken)
             .set('fields', 'id,username,first_name,last_name,bio,image');
         this.http.get(this.env.apiUri + endPoint, { params: params }).subscribe(function (user) {
-            _this.loggedInUser = user;
+            _this.loggedInUser = user['data'];
             console.log(user);
-            _this.router.navigate(['/user']);
+            _this.router.navigate(['user']);
         }, function (error) {
             console.error(error);
         });
@@ -915,7 +915,7 @@ var UserComponent = /** @class */ (function () {
     }
     UserComponent.prototype.ngOnInit = function () {
         //Busca os dados do usuarios  no service
-        this.user = this.pinterest.getUser().data;
+        this.user = this.pinterest.getUser();
         // se existir a imagem 60x60
         if (this.user.image['60x60']) {
             this.avatarImage = this.user.image['60x60'].url;
