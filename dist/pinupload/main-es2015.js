@@ -202,6 +202,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_header_header_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ui/header/header.component */ "./src/app/ui/header/header.component.ts");
 /* harmony import */ var _ui_main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ui/main-menu/main-menu.component */ "./src/app/ui/main-menu/main-menu.component.ts");
 /* harmony import */ var _boards_boards_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./boards/boards.component */ "./src/app/boards/boards.component.ts");
+/* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/service-worker */ "./node_modules/@angular/service-worker/fesm2015/service-worker.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+
+
 
 
 
@@ -238,7 +242,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientJsonpModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
-            _material_material_module__WEBPACK_IMPORTED_MODULE_7__["MaterialModule"]
+            _material_material_module__WEBPACK_IMPORTED_MODULE_7__["MaterialModule"],
+            _angular_service_worker__WEBPACK_IMPORTED_MODULE_15__["ServiceWorkerModule"].register('ngsw-worker.js', { enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].production })
         ],
         providers: [],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -375,7 +380,7 @@ HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dvbmNpbi9BVUxBL3BpbnVwbG9hZC9zcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNHLGtCQUFBO0FDQ0giLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XG4gICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59IiwiZGl2IHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */"
+module.exports = "div {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vQzpcXFVzZXJzXFwxMDkwNDgxNzEzMDA3XFxEZXNrdG9wXFxwcm92YWZvcmtcXHBpbnVwbG9hZC9zcmNcXGFwcFxcbG9naW5cXGxvZ2luLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNHLGtCQUFBO0FDQ0giLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XG4gICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59IiwiZGl2IHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -829,7 +834,7 @@ MainMenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-card-image {\n  height: 60px;\n  width: 60px;\n  border-radius: 50%;\n}\n\n.example-card {\n  max-width: 400px;\n  margin: 0 auto;\n}\n\n.example-header-image {\n  background-size: cover;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dvbmNpbi9BVUxBL3BpbnVwbG9hZC9zcmMvYXBwL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ0NGOztBREVBO0VBQ0UsZ0JBQUE7RUFDQSxjQUFBO0FDQ0Y7O0FERUE7RUFDRSxzQkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1hdC1jYXJkLWltYWdlIHtcbiAgaGVpZ2h0OiA2MHB4O1xuICB3aWR0aDogNjBweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuXG4uZXhhbXBsZS1jYXJkIHtcbiAgbWF4LXdpZHRoOiA0MDBweDtcbiAgbWFyZ2luOiAwIGF1dG87XG59XG4gXG4uZXhhbXBsZS1oZWFkZXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufSIsIi5tYXQtY2FyZC1pbWFnZSB7XG4gIGhlaWdodDogNjBweDtcbiAgd2lkdGg6IDYwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuLmV4YW1wbGUtY2FyZCB7XG4gIG1heC13aWR0aDogNDAwcHg7XG4gIG1hcmdpbjogMCBhdXRvO1xufVxuXG4uZXhhbXBsZS1oZWFkZXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufSJdfQ== */"
+module.exports = ".mat-card-image {\n  height: 60px;\n  width: 60px;\n  border-radius: 50%;\n}\n\n.example-card {\n  max-width: 400px;\n  margin: 0 auto;\n}\n\n.example-header-image {\n  background-size: cover;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci9DOlxcVXNlcnNcXDEwOTA0ODE3MTMwMDdcXERlc2t0b3BcXHByb3ZhZm9ya1xccGludXBsb2FkL3NyY1xcYXBwXFx1c2VyXFx1c2VyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC91c2VyL3VzZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0FDQ0Y7O0FERUE7RUFDRSxnQkFBQTtFQUNBLGNBQUE7QUNDRjs7QURFQTtFQUNFLHNCQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC91c2VyL3VzZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWF0LWNhcmQtaW1hZ2Uge1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5cbi5leGFtcGxlLWNhcmQge1xuICBtYXgtd2lkdGg6IDQwMHB4O1xuICBtYXJnaW46IDAgYXV0bztcbn1cbiBcbi5leGFtcGxlLWhlYWRlci1pbWFnZSB7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG59IiwiLm1hdC1jYXJkLWltYWdlIHtcbiAgaGVpZ2h0OiA2MHB4O1xuICB3aWR0aDogNjBweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuXG4uZXhhbXBsZS1jYXJkIHtcbiAgbWF4LXdpZHRoOiA0MDBweDtcbiAgbWFyZ2luOiAwIGF1dG87XG59XG5cbi5leGFtcGxlLWhlYWRlci1pbWFnZSB7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG59Il19 */"
 
 /***/ }),
 
@@ -899,22 +904,12 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     authUrl: 'https://api.pinterest.com/oauth/',
-    // redirect_uri: https://<usuario-do-github>.github.io/pinupload/oauth2/callback
-    redirectUri: 'https://faustocintra.github.io/pinupload/oauth2/callback',
+    //redirect_uri http://<usuario do github> .github.io/pinupload/oauth2/callback
+    redirectUri: 'https://evaldolucas.github.io/pinupload/oauth2/callback',
     tokenUri: 'https://api.pinterest.com/v1/oauth/token',
     apiUri: 'https://api.pinterest.com/v1/',
-    /* Pinupload original */
-    //clientId: '5048713194869147067',
-    //clientSecret: '61229065b822b00bf68dda5c20381ba56c315eccd22e6067615a28e16c1c9c7b'
-    /* Pinupload reborn */
-    //clientId: '5061890736316790442', // Cada um tem o seu
-    //clientSecret: '2621b5b89b39061c1489788af31e8d239321e5b7d08b3cc772a681573a185a9f' // Cada um tem o seu
-    /* Pinupload triborn */
-    //clientId: '5063936772239566312', // Cada um tem o seu
-    //clientSecret: '2bb99db899eaf50e3b820673db9dd344deb6edcb5b670b013a07f188cd6ab406' // Cada um tem o seu
-    /* Pinupload tetraborn */
-    clientId: '5063938756044700469',
-    clientSecret: '204681794a494f62b1d6d6bab6b2068d90e4de3af8e79c9a6d7b1fe1659639e4' // Cada um tem o seu
+    clientSecret: '8e973e003d40389c67416ff39282e0fe761fe7643825babd74227d8ba541f0cf',
+    clientId: '5048713883991191358' // cada um tem o seu (Pinterest)
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -964,7 +959,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/goncin/AULA/pinupload/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\1090481713007\Desktop\provafork\pinupload\src\main.ts */"./src/main.ts");
 
 
 /***/ })
