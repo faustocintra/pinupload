@@ -5,7 +5,7 @@
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "https://bruno-oliveira-e-oliveira.github.io/pinupload/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
