@@ -8,7 +8,7 @@ export const environment = {
   redirectUri: 'https://willdfz.github.io/pinupload/oauth2/callback',
   tokenUri: 'https://api.pinterest.com/v1/oauth/token',
   apiUri: 'https://api.pinterest.com/v1/',
-  clientId: '5048713209628899439', 
+  clientId: '5051253459699939427', 
   clientSecret: '8def3b7ac59572fa4266a0e44061416632c45f2bd5ff2267ed7fba5ce0312f85'
 };
 
