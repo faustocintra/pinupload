@@ -15,7 +15,7 @@ import { HeaderComponent } from './ui/header/header.component';
 import { MainMenuComponent } from './ui/main-menu/main-menu.component';
 import { BoardsComponent } from './boards/boards.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import { environment } from './../environments/enviroment';
 
 @NgModule({
   declarations: [
