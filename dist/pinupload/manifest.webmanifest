@@ -3,9 +3,9 @@
   "short_name": "pinupload",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
-  "display": "standalone",
+  "display": "minimal-ui",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "https://github.com/anacarolina1210/pinupload/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
