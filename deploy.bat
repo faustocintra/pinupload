@@ -1,8 +1,8 @@
-"%USERPROFILE%\AppData\Roaming\npm\ng.cmd" build --base-href /pinupload/ && ^
+"%USERPROFILE%\AppData\Roaming\npm\ng.cmd" build flag --prod --base-href /pinupload/ && ^
 copy /y src\404.html dist\pinupload && ^
 git add -f dist && ^
 git commit -m %1 && ^
-git subtree push --prefix=dist/pinupload origin gh-pages
+git subtree push --prefix=dist/pinupload origin gh-pages 
 
 REM Compila o projeto Angular para deploy.
 REM Este comando gera ou atualiza a pasta /dist
