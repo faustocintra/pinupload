@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Pastas</h1>\n\n<mat-accordion *ngIf=\"boards.length > 0\">\n   <mat-expansion-panel *ngFor=\"let board of boards\" (opened)=\"fetchPins(board.name)\">\n      <mat-expansion-panel-header>\n\n         <mat-panel-title>\n            {{ board.name }}\n         </mat-panel-title>\n\n      </mat-expansion-panel-header>\n\n      <mat-card *ngFor=\"let pin of boardPins[board.name]\" class=\"pin-preview\">\n         <img mat-card-image [src]=\"pin.image.original.url\" [alt]=\"pin.note\">\n         <mat-card-content>\n           <p>\n             {{ pin.note }}\n           </p>\n         </mat-card-content>         \n       </mat-card>\n\n   </mat-expansion-panel>\n</mat-accordion>\n\n<p *ngIf=\"boards.length <= 0\">Você não criou nenhuma pasta ainda.</p>"
+module.exports = "<h1>Pastas</h1>\r\n\r\n<mat-accordion *ngIf=\"boards.length > 0\">\r\n   <mat-expansion-panel *ngFor=\"let board of boards\" (opened)=\"fetchPins(board.name)\">\r\n      <mat-expansion-panel-header>\r\n\r\n         <mat-panel-title>\r\n            {{ board.name }}\r\n         </mat-panel-title>\r\n\r\n      </mat-expansion-panel-header>\r\n\r\n      <mat-card *ngFor=\"let pin of boardPins[board.name]\" class=\"pin-preview\">\r\n         <img mat-card-image [src]=\"pin.image.original.url\" [alt]=\"pin.note\">\r\n         <mat-card-content>\r\n           <p>\r\n             {{ pin.note }}\r\n           </p>\r\n         </mat-card-content>         \r\n       </mat-card>\r\n\r\n   </mat-expansion-panel>\r\n</mat-accordion>\r\n\r\n<p *ngIf=\"boards.length <= 0\">Você não criou nenhuma pasta ainda.</p>"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "<h1>Pastas</h1>\n\n<mat-accordion *ngIf=\"boards.length > 0\">
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>home works!</p>\n"
+module.exports = "<p>home works!</p>\r\n"
 
 /***/ }),
 
@@ -52,7 +52,7 @@ module.exports = "<p>home works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n   <button mat-button color=\"primary\" (click)=\"doLogin()\">\n      Fazer login no Pinterest\n   </button>\n</div>"
+module.exports = "<div>\r\n   <button mat-button color=\"primary\" (click)=\"doLogin()\">\r\n      Fazer login no Pinterest\r\n   </button>\r\n</div>"
 
 /***/ }),
 
@@ -63,7 +63,7 @@ module.exports = "<div>\n   <button mat-button color=\"primary\" (click)=\"doLog
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>o-auth2-callback works!</p>\n"
+module.exports = "<p>o-auth2-callback works!</p>\r\n"
 
 /***/ }),
 
@@ -74,7 +74,7 @@ module.exports = "<p>o-auth2-callback works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z8\">\n   <mat-toolbar-row>\n      <app-main-menu></app-main-menu>\n      <span>{{ appName }}</span>\n   </mat-toolbar-row>\n</mat-toolbar>"
+module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z8\">\r\n   <mat-toolbar-row>\r\n      <app-main-menu></app-main-menu>\r\n      <span>{{ appName }}</span>\r\n   </mat-toolbar-row>\r\n</mat-toolbar>"
 
 /***/ }),
 
@@ -85,7 +85,7 @@ module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z8\">\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-button [matMenuTriggerFor]=\"menu\" #state=\"matMenuTrigger\">\n   <mat-icon *ngIf=\"! state.menuOpen\">menu</mat-icon>\n   <mat-icon *ngIf=\"state.menuOpen\">close</mat-icon>\n</button>\n<mat-menu #menu=\"matMenu\">\n   <a *ngIf=\"hasUser()\" mat-menu-item [routerLink]=\"['/user']\">Perfil</a>\n   <a *ngIf=\"hasUser()\" mat-menu-item [routerLink]=\"['/boards']\">Pastas</a>\n   <a *ngIf=\"! hasUser()\" mat-menu-item [routerLink]=\"['/login']\">Entrar</a>\n   <button *ngIf=\"hasUser()\" mat-menu-item (click)=\"logOff()\">Sair</button>   \n</mat-menu>"
+module.exports = "<button mat-button [matMenuTriggerFor]=\"menu\" #state=\"matMenuTrigger\">\r\n   <mat-icon *ngIf=\"! state.menuOpen\">menu</mat-icon>\r\n   <mat-icon *ngIf=\"state.menuOpen\">close</mat-icon>\r\n</button>\r\n<mat-menu #menu=\"matMenu\">\r\n   <a *ngIf=\"hasUser()\" mat-menu-item [routerLink]=\"['/user']\">Perfil</a>\r\n   <a *ngIf=\"hasUser()\" mat-menu-item [routerLink]=\"['/boards']\">Pastas</a>\r\n   <a *ngIf=\"! hasUser()\" mat-menu-item [routerLink]=\"['/login']\">Entrar</a>\r\n   <button *ngIf=\"hasUser()\" mat-menu-item (click)=\"logOff()\">Sair</button>   \r\n</mat-menu>"
 
 /***/ }),
 
@@ -96,7 +96,7 @@ module.exports = "<button mat-button [matMenuTriggerFor]=\"menu\" #state=\"matMe
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <mat-card class=\"example-card\">\n    <mat-card-header>\n      <div mat-card-avatar>\n        <img mat-card-image [src]=\"avatarImage\" [alt]=\"avatarAlt\">\n      </div>\n      <mat-card-title>{{ user.username }}</mat-card-title>\n      <mat-card-subtitle>{{ user.first_name }} {{ user.last_name }}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n      <p>{{ user.bio }}</p>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-raised-button color=\"primary\" (click)=\"doLogoff()\">Sair</button>\n    </mat-card-actions>\n  </mat-card>\n</div>\n"
+module.exports = "<div class=\"container\">\r\n  <mat-card class=\"example-card\">\r\n    <mat-card-header>\r\n      <div mat-card-avatar>\r\n        <img mat-card-image [src]=\"avatarImage\" [alt]=\"avatarAlt\">\r\n      </div>\r\n      <mat-card-title>{{ user.username }}</mat-card-title>\r\n      <mat-card-subtitle>{{ user.first_name }} {{ user.last_name }}</mat-card-subtitle>\r\n    </mat-card-header>\r\n    <mat-card-content>\r\n      <p>{{ user.bio }}</p>\r\n    </mat-card-content>\r\n    <mat-card-actions>\r\n      <button mat-raised-button color=\"primary\" (click)=\"doLogoff()\">Sair</button>\r\n    </mat-card-actions>\r\n  </mat-card>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -407,7 +407,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dvbmNpbi9BVUxBL3BpbnVwbG9hZC9zcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNHLGtCQUFBO0FDQ0giLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XG4gICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59IiwiZGl2IHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */"
+module.exports = "div {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2FuZHJlL0Rldi9waW51cGxvYWQvc3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRyxrQkFBQTtBQ0NIIiwiZmlsZSI6InNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJkaXYge1xyXG4gICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn0iLCJkaXYge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59Il19 */"
 
 /***/ }),
 
@@ -873,7 +873,7 @@ var MainMenuComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-card-image {\n  height: 60px;\n  width: 60px;\n  border-radius: 50%;\n}\n\n.example-card {\n  max-width: 400px;\n  margin: 0 auto;\n}\n\n.example-header-image {\n  background-size: cover;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dvbmNpbi9BVUxBL3BpbnVwbG9hZC9zcmMvYXBwL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ0NGOztBREVBO0VBQ0UsZ0JBQUE7RUFDQSxjQUFBO0FDQ0Y7O0FERUE7RUFDRSxzQkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1hdC1jYXJkLWltYWdlIHtcbiAgaGVpZ2h0OiA2MHB4O1xuICB3aWR0aDogNjBweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuXG4uZXhhbXBsZS1jYXJkIHtcbiAgbWF4LXdpZHRoOiA0MDBweDtcbiAgbWFyZ2luOiAwIGF1dG87XG59XG4gXG4uZXhhbXBsZS1oZWFkZXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufSIsIi5tYXQtY2FyZC1pbWFnZSB7XG4gIGhlaWdodDogNjBweDtcbiAgd2lkdGg6IDYwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuLmV4YW1wbGUtY2FyZCB7XG4gIG1heC13aWR0aDogNDAwcHg7XG4gIG1hcmdpbjogMCBhdXRvO1xufVxuXG4uZXhhbXBsZS1oZWFkZXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufSJdfQ== */"
+module.exports = ".mat-card-image {\n  height: 60px;\n  width: 60px;\n  border-radius: 50%;\n}\n\n.example-card {\n  max-width: 400px;\n  margin: 0 auto;\n}\n\n.example-header-image {\n  background-size: cover;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2FuZHJlL0Rldi9waW51cGxvYWQvc3JjL2FwcC91c2VyL3VzZXIuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUNDRjs7QURFQTtFQUNFLGdCQUFBO0VBQ0EsY0FBQTtBQ0NGOztBREVBO0VBQ0Usc0JBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYXQtY2FyZC1pbWFnZSB7XHJcbiAgaGVpZ2h0OiA2MHB4O1xyXG4gIHdpZHRoOiA2MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxufVxyXG5cclxuLmV4YW1wbGUtY2FyZCB7XHJcbiAgbWF4LXdpZHRoOiA0MDBweDtcclxuICBtYXJnaW46IDAgYXV0bztcclxufVxyXG4gXHJcbi5leGFtcGxlLWhlYWRlci1pbWFnZSB7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcclxufSIsIi5tYXQtY2FyZC1pbWFnZSB7XG4gIGhlaWdodDogNjBweDtcbiAgd2lkdGg6IDYwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuLmV4YW1wbGUtY2FyZCB7XG4gIG1heC13aWR0aDogNDAwcHg7XG4gIG1hcmdpbjogMCBhdXRvO1xufVxuXG4uZXhhbXBsZS1oZWFkZXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -944,22 +944,11 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     authUrl: 'https://api.pinterest.com/oauth/',
-    // redirect_uri: https://<usuario-do-github>.github.io/pinupload/oauth2/callback
-    redirectUri: 'https://faustocintra.github.io/pinupload/oauth2/callback',
-    tokenUri: 'https://api.pinterest.com/v1/oauth/token',
+    redirectUri: 'http://localhost:4200/login',
+    clientId: '5049983015757855021',
+    clientSecret: '11980c59c477800758bcfd4bf58eeacac07b5bf8a6a185e28728ab7f7995a64a',
     apiUri: 'https://api.pinterest.com/v1/',
-    /* Pinupload original */
-    //clientId: '5048713194869147067',
-    //clientSecret: '61229065b822b00bf68dda5c20381ba56c315eccd22e6067615a28e16c1c9c7b'
-    /* Pinupload reborn */
-    //clientId: '5061890736316790442', // Cada um tem o seu
-    //clientSecret: '2621b5b89b39061c1489788af31e8d239321e5b7d08b3cc772a681573a185a9f' // Cada um tem o seu
-    /* Pinupload triborn */
-    //clientId: '5063936772239566312', // Cada um tem o seu
-    //clientSecret: '2bb99db899eaf50e3b820673db9dd344deb6edcb5b670b013a07f188cd6ab406' // Cada um tem o seu
-    /* Pinupload tetraborn */
-    clientId: '5063938756044700469',
-    clientSecret: '204681794a494f62b1d6d6bab6b2068d90e4de3af8e79c9a6d7b1fe1659639e4' // Cada um tem o seu
+    tokenUri: '',
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -1009,7 +998,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/goncin/AULA/pinupload/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/andre/Dev/pinupload/src/main.ts */"./src/main.ts");
 
 
 /***/ })
