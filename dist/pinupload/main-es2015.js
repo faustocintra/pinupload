@@ -904,11 +904,11 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     authUrl: 'https://api.pinterest.com/oauth/',
-    redirectUri: 'http://localhost:4200/login',
+    redirectUri: 'https://fatecandre.github.io/pinupload/',
     clientId: '5049983015757855021',
     clientSecret: '11980c59c477800758bcfd4bf58eeacac07b5bf8a6a185e28728ab7f7995a64a',
     apiUri: 'https://api.pinterest.com/v1/',
-    tokenUri: '',
+    tokenUri: 'https://api.pinterest.com/v1/oauth/token/',
 };
 /*
  * For easier debugging in development mode, you can import the following file
