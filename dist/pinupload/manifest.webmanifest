@@ -1,11 +1,11 @@
 {
   "name": "pinupload",
   "short_name": "pinupload",
-  "theme_color": "#1976d2",
+  "theme_color": "#03a9f4",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
-  "start_url": "https://CarlosAss45.github.io/pinupload/",
+  "start_url": "https://fatecandre.github.io/pinupload",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
