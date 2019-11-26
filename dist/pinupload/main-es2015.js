@@ -902,13 +902,13 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
-    production: false,
+    production: true,
     authUrl: 'https://api.pinterest.com/oauth/',
-    redirectUri: 'https://fatecandre.github.io/pinupload/login/',
+    redirectUri: 'https://fatecandre.github.io/pinupload/oauth2/callback',
     clientId: '5049983015757855021',
-    clientSecret: '11980c59c477800758bcfd4bf58eeacac07b5bf8a6a185e28728ab7f7995a64a',
+    tokenUri: 'https://api.pinterest.com/v1/oauth/token',
     apiUri: 'https://api.pinterest.com/v1/',
-    tokenUri: 'https://api.pinterest.com/v1/oauth/token/',
+    clientSecret: '11980c59c477800758bcfd4bf58eeacac07b5bf8a6a185e28728ab7f7995a64a'
 };
 /*
  * For easier debugging in development mode, you can import the following file
